@@ -1,0 +1,311 @@
+{
+    "settings": {
+        "companyName": "AlloVirtuel",
+        "logo": "images/allovirtuel_logo.jpg",
+        "theme": {
+            "primaryColor": "#3b82f6",
+            "secondaryColor": "#8b5cf6",
+            "backgroundColor": "#0a0a0a",
+            "textColor": "#f8fafc",
+            "accentColor": "#25D366"
+        },
+        "contact": {
+            "whatsapp": "212625929616",
+            "email": "allovirtuel@gmail.com",
+            "linkedin": "linkedin.com\/in\/devportfolio",
+            "github": "github.com\/devportfolio",
+            "instagram": "instagram.com\/allovirtuel.ma"
+        }
+    },
+    "navigation": [
+        {
+            "label": "About Us",
+            "href": "#about"
+        },
+        {
+            "label": "Services",
+            "href": "#services"
+        },
+        {
+            "label": "Projects",
+            "href": "#projects"
+        },
+        {
+            "label": "Contact",
+            "href": "#contact"
+        }
+    ],
+    "hero": {
+        "title": "Welcome to AlloVirtuel",
+        "subtitle": "Full-Stack Developers & Creative Problem Solvers",
+        "description": "We create smart, affordable digital solutions for small businesses and local shops. From clean websites to custom chatbots, we help you connect, engage, and grow — fast.",
+        "cta": {
+            "text": "Start Your Project With Us",
+            "href": "#services"
+        },
+        "image": {
+            "alt": "Developer avatar",
+            "src": "images/allovirtuel_logo.jpg"
+        }
+    },
+    "about": {
+        "title": "About Us",
+        "content": [
+            "AlloVirtuel is a small web development agency based in Tangier. We're a team of three passionate developers, just starting out — but fully committed to helping local businesses thrive online.",
+            "We specialize in website development and custom chatbot creation, always focused on fast delivery, personalized service, and the best price possible.",
+            "Our mission is simple: to build trust with every client, and to support the digital transformation of Morocco — one project at a time."
+        ],
+        "image": "images/pexels-coding.jpg"
+    },
+    "whyAllovirtuel": {
+                "title": "Why Choose AlloVirtuel?",
+                "subtitle": "",
+                "content": [
+                  "At AlloVirtuel, we create much more than just websites. Our sites are modern, responsive, fast, and designed to provide your visitors with a smooth and engaging experience, no matter what device they use. Each design is personalized to perfectly reflect your visual identity, strengthen your credibility, and capture your customers' attention.",
+                  "But what truly sets us apart is the integration of a smart AI chatbot, directly embedded in your site, which instantly answers your customers’ questions, improves their satisfaction, and saves you time.",
+                  "This unique combination of web quality and artificial intelligence puts your business ahead of the competition, while remaining financially accessible.",
+                  "With AlloVirtuel, you invest in the digital future of your business, not just a simple website."
+                ]
+    },
+    "services": {
+        "title": "Our Packages",
+        "subtitle": "Tailored solutions for all your digital needs",
+        "packages": [
+            {
+                "id": "package-3",
+                "title": "Smart Start AI",
+                "icon": "🤖",
+                "description": "Perfect for startups and small businesses ready to automate fast.",
+                "features": [
+                    "Custom AI-powered chatbot tailored to your business needs",
+                    "Chatbot integration on your existing website or social media",
+                    "Basic chatbot training for FAQs and customer interactions",
+                    "Quick setup: get your AI assistant live in days",
+                    "Affordable, no website needed—just AI automation to boost your customer support"
+                ],
+                "popular": false,
+                "cta": {
+                    "text": "Get a Quote on WhatsApp",
+                    "href": "https:\/\/wa.me\/212625929616?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20le%20Pack%20Chatbot%20Business.%20Pouvez-vous%20m'envoyer%20un%20devis%20et%20m'expliquer%20comment%20d%C3%A9marrer%20le%20projet%20avec%20AlloVirtuel%20%3F"
+                }
+            },
+            {
+                "id": "package-4",
+                "title": "Intermediate: Website Only",
+                "icon": "🌐",
+                "description": "For businesses wanting a professional, sleek online presence .",
+                "features": [
+                    "Fully responsive static website designed with modern UX/UI",
+                    "Up to 5 pages (Home, About, Services, Contact, FAQ)",
+                    "Mobile optimized, SEO-ready base setup",
+                    "Easy-to-update content management guidance",
+                    "Fast turnaround (1-2 weeks) with clean, elegant design",
+                    "Perfect for businesses looking to establish or refresh their digital presence"
+                ],
+                "popular": false,
+                "cta": {
+                    "text": "Let's Talk on WhatsApp",
+                    "href": "https:\/\/wa.me\/212625929616?text=Bonjour%2C%20je%20souhaite%20obtenir%20plus%20d'informations%20sur%20le%20Pack%20Pro%20Website%20Showcase%20et%20recevoir%20un%20devis.%20Merci%20!"
+                }
+            },
+            {
+                "id": "package-5",
+                "title": "Pro+ : Website + AI Chatbot",
+                "icon": "⚡",
+                "description": "The ultimate package for maximum digital impact .",
+                "features": [
+                    "Custom static website (up to 7 pages) with premium design and animations",
+                    "Integrated AI chatbot that handles customer questions and automates support",
+                    "Personalized chatbot training and ongoing support",
+                    "Website maintenance options available",
+                    "Full mobile responsiveness and speed optimization",
+                    "Best choice for businesses ready to scale both web presence and automation"
+                ],
+                "popular": true,
+                "cta": {
+                    "text": "Get a Quote on WhatsApp",
+                    "href": "https:\/\/wa.me\/212625929616?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20le%20Pack%20Digital%20Complet%20(website%20+%20chatbot).%20Merci%20de%20me%20partager%20les%20d%C3%A9tails%20et%20le%20devis%20!"
+                }
+            }
+        ]
+    },
+    "process": {
+        "title": "How We Build Your Website",
+        "subtitle": "A transparent process in 4 simple steps",
+        "steps": [
+            {
+                "number": 1,
+                "title": "Discovery",
+                "description": "Analysis of your needs and objectives.",
+                "icon": "fas fa-bullseye"
+            },
+            {
+                "number": 2,
+                "title": "Design & Development",
+                "description": "Mockup creation and transformation into a working website.",
+                "icon": "fas fa-pencil-ruler"
+            },
+            {
+                "number": 3,
+                "title": "Testing & Validation",
+                "description": "Full review and client validation.",
+                "icon": "fas fa-clipboard-check"
+            },
+            {
+                "number": 4,
+                "title": "Launch & Support",
+                "description": "Online deployment, training and maintenance.",
+                "icon": "fas fa-rocket"
+            }
+        ]
+    },
+    "projects": {
+        "title": "Our Projects",
+        "items": [
+            {
+                "title": "LuxCar",
+                "description": "Showcase Website Prototype for a Car Rental Agency.",
+                "icon": "🚗",
+                "image": "images/luxCarScreenS.png",
+                "links": [
+                    {
+                        "text": "Demo",
+                        "href": "prototypes/Car.html"
+                    }
+                ]
+            },{
+                "title": "alloFood",
+                "description": "Showcase Website Prototype for a Restaurant.",
+                "icon": "🍽️",
+                "image": "images/alloFood_ScreenS.png",
+                "links": [
+                    {
+                        "text": "Demo",
+                        "href": "prototypes/Restaurant.html"
+                    }
+                ]
+            },{
+                "title": "Élégance Traiteur",
+                "description": "Showcase Website Prototype for a Traiteur.",
+                "icon": "🧑‍🍳",
+                "image": "images/eleganceTraiteurScreenS.png",
+                "links": [
+                    {
+                        "text": "Demo",
+                        "href": "prototypes/traiteur.html"
+                    }
+                ]
+            },
+            {
+                "title": "Luxurious Spa",
+                "description": "Showcase Website Prototype for a Spa.",
+                "icon": "🧑",
+                "image": "images/spa.png",
+                "links": [
+                    {
+                        "text": "Demo",
+                        "href": "prototypes/spa.html"
+                    }
+                ]
+            },
+            {
+                "title": "Luxe Patisserie",
+                "description": "Showcase Website Prototype for a Patisserie.",
+                "icon": "🍰",
+                "image": "images/patis.png",
+                "links": [
+                    {
+                        "text": "Demo",
+                        "href": "prototypes/patt.html"
+                    }
+                ]
+            },
+            {
+                "title": "LuxEstate",
+                "description": "Showcase Website Prototype for a Real Estate Agency.",
+                "icon": "🏠",
+                "image": "images/luxEstateScreenS.png",
+                "links": [
+                    {
+                        "text": "Demo",
+                        "href": "prototypes/Real_estate.html"
+                    }
+                ]
+            }
+        ]
+    },
+    "faq": {
+        "title": "FAQ",
+        "items": [
+            {
+                "question": "What types of websites do you create?",
+                "answer": "We specialize in clean, responsive, and modern static websites tailored for small businesses, startups, and entrepreneurs"
+            },
+            {
+                "question": "Do you provide chatbot integration services?",
+                "answer": "Absolutely! We build and integrate smart chatbots that help improve customer interaction and automate support for your website or business."
+            },
+            {
+                "question": "Can I update my website content myself later?",
+                "answer": "Yes, we can provide simple-to-use content management solutions or tutorials so you can update your website easily without technical help."
+            },
+            {
+                "question": "Are your websites mobile-friendly?",
+                "answer": "Definitely. All our websites are fully responsive and optimized for mobile devices to ensure a smooth user experience."
+            },
+            {
+                "question": "What information do you need from me to start?",
+                "answer": "We’ll need your business details, goals, branding assets (like logos and colors), and any specific content or design preferences."
+            }
+        ]
+    },
+    "contact": {
+        "title": "Contact",
+        "channels": {
+            "subtitle": "Let's stay in touch",
+            "items": [
+                {
+                    "type": "email",
+                    "icon": "@",
+                    "iconWithClass": false,
+                    "label": "Email",
+                    "value": "allovirtuel@gmail.com",
+                    "href": "mailto:allovirtuel@gmail.com"
+
+                },
+                {
+                    "type": "linkedin",
+                    "icon": "fab fa-linkedin",
+                    "iconWithClass": true,
+                    "label": "LinkedIn",
+                    "value": "\/in\/devportfolio",
+                    "href": "https:\/\/linkedin.com\/in\/devportfolio"
+                },
+                {
+                    "type": "github",
+                    "icon": "fab fa-github",
+                    "iconWithClass": true,
+                    "label": "GitHub",
+                    "value": "\/devportfolio",
+                    "href": "https:\/\/github.com\/devportfolio"
+                },
+                {
+                    "type": "whatsapp",
+                    "icon": "fab fa-whatsapp",
+                    "iconWithClass": true,
+                    "label": "WhatsApp",
+                    "value": "+212 625-929616",
+                    "href": "https:\/\/wa.me\/212625929616?text=Bonjour"
+                },
+                {
+                    "type": "instagram",
+                    "icon": "fab fa-instagram",
+                    "iconWithClass": true,
+                    "label": "Instagram",
+                    "value": "allovirtuel.ma",
+                    "href": "https:\/\/www.instagram.com\/allovirtuel.ma\/?utm_source=ig_web_button_share_sheet"
+                }
+            ]
+        }
+    }
+}

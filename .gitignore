@@ -1,0 +1,56 @@
+# Configuration sensibles
+admin/config.php
+
+# Dossiers de fichiers uploadés
+uploads/
+uploads/*
+!uploads/.gitkeep
+
+# Fichiers temporaires
+*.tmp
+*.log
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# IDE & Editeurs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+
+# Environnement
+.env
+.env.local
+.env.*.local
+
+# Cache
+.cache/
+tmp/
+temp/
+
+# Dépendances (si composer est utilisé)
+vendor/
+composer.lock
+
+# Base de données locale
+*.sqlite
+*.sqlite3
+*.db
+
+# Sessions PHP
+sessions/
+*.sess
+
+# Node modules (si utilisé)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# OS files
+.AppleDouble
+.LSOverride
+._*

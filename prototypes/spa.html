@@ -1,0 +1,2686 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxurious Spa Tanger | Oasis de Bien-être</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --red: #9D2B2B;
+            --gold: #D4AF37;
+            --white: #FFFFFF;
+            --light-beige: #F8F4F0;
+            --dark: #333333;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--white);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--red);
+            margin-bottom: 20px;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            padding: 15px 0;
+        }
+        
+        .header-scrolled {
+            padding: 10px 0;
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.92);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .logo h1 {
+            font-size: 28px;
+            margin: 0;
+            color: var(--red);
+            transition: var(--transition);
+        }
+        
+        .logo span {
+            color: var(--gold);
+            transition: var(--transition);
+        }
+        
+        .logo:hover h1 {
+            transform: translateY(-2px);
+        }
+        
+        .logo:hover span {
+            color: var(--red);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 16px;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        nav ul li a:hover {
+            color: var(--red);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--gold);
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: var(--red);
+            z-index: 1001;
+            transition: var(--transition);
+        }
+        
+        .menu-toggle:hover {
+            transform: rotate(90deg);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(157, 43, 43, 0.2) 0%, rgba(212, 175, 55, 0.2) 100%);
+            z-index: 0;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .hero-content.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--white);
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--red);
+            color: var(--white);
+            padding: 14px 35px;
+            border: none;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: var(--gold);
+            transition: var(--transition);
+            z-index: -1;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:hover::before {
+            width: 100%;
+        }
+        
+        /* Floating Elements */
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        .floating-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background-color: var(--light-beige);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about::before {
+            content: '';
+            position: absolute;
+            top: -150px;
+            right: -150px;
+            width: 300px;
+            height: 300px;
+            background: var(--gold);
+            opacity: 0.05;
+            border-radius: 50%;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: var(--gold);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .about-text.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .about-image.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.8s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Why Us Section */
+        .why-us {
+            padding: 100px 0;
+            background-color: var(--white);
+            position: relative;
+        }
+        
+        .why-us::after {
+            content: '';
+            position: absolute;
+            bottom: -150px;
+            left: -150px;
+            width: 300px;
+            height: 300px;
+            background: var(--red);
+            opacity: 0.05;
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            background-color: var(--white);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .feature.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .feature::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 0;
+            background: var(--gold);
+            transition: var(--transition);
+            z-index: -1;
+        }
+        
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature:hover::before {
+            height: 100%;
+        }
+        
+        .feature i {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+        
+        .feature:hover i {
+            transform: scale(1.1);
+        }
+        
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+        
+        .feature:hover h3 {
+            color: var(--gold);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background-color: var(--light-beige);
+            position: relative;
+        }
+        
+        .services::before {
+            content: '';
+            position: absolute;
+            top: -150px;
+            right: -150px;
+            width: 300px;
+            height: 300px;
+            background: var(--gold);
+            opacity: 0.05;
+            border-radius: 50%;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .service.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .service:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .service-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .service-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .service:hover .service-image::after {
+            opacity: 1;
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        
+        .service:hover .service-image img {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: 25px;
+            position: relative;
+        }
+        
+        .service h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            transition: var(--transition);
+        }
+        
+        .service:hover h3 {
+            color: var(--gold);
+        }
+        
+        .service p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .price {
+            color: var(--red);
+            font-weight: 600;
+            font-size: 1.2rem;
+            display: block;
+            margin-top: 10px;
+        }
+        
+        /* Location Section */
+        .location {
+            padding: 100px 0;
+            background-color: var(--white);
+            position: relative;
+        }
+        
+        .location::after {
+            content: '';
+            position: absolute;
+            bottom: -150px;
+            left: -150px;
+            width: 300px;
+            height: 300px;
+            background: var(--red);
+            opacity: 0.05;
+            border-radius: 50%;
+        }
+        
+        .map-container {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            height: 400px;
+            opacity: 0;
+            transform: scale(0.95);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .map-container.animate {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .address {
+            text-align: center;
+            margin-top: 30px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .address.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background-color: var(--light-beige);
+            position: relative;
+        }
+        
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: -150px;
+            right: -150px;
+            width: 300px;
+            height: 300px;
+            background: var(--gold);
+            opacity: 0.05;
+            border-radius: 50%;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .contact-info.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            transition: var(--transition);
+            width: 320px;
+        }
+        
+        .contact-item:hover {
+            transform: translateX(5px);
+            background: var(--gold);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--gold);
+            width: 30px;
+            transition: var(--transition);
+        }
+        
+        .contact-item:hover i {
+            transform: scale(1.2);
+        }
+        
+        .contact-form {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .contact-form.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--red);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-top:hover {
+            background: var(--gold);
+            transform: translateY(-5px);
+        }
+        
+        /* Loading Animation */
+        .loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--light-beige);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        .loader-wrapper.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .loader {
+            width: 50px;
+            height: 50px;
+            position: relative;
+        }
+        
+        .loader:before, .loader:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: var(--gold);
+            opacity: 0.6;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .loader:after {
+            animation-delay: -1s;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(0);
+                opacity: 0.6;
+            }
+            50% {
+                transform: scale(1);
+                opacity: 0;
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .floating-elements {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background-color: var(--white);
+                transition: var(--transition);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 30px;
+                width: 100%;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                font-size: 18px;
+                padding: 10px 0;
+                display: block;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* Footer Styles */
+footer {
+    background: linear-gradient(to right, #1a1a1a, #2c2c2c);
+    color: var(--white);
+    padding: 80px 0 20px;
+    position: relative;
+    margin-top: 100px;
+}
+
+.footer-wave {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    height: 100px;
+}
+
+.footer-wave svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 100px;
+}
+
+.footer-wave .shape-fill {
+    fill: #2c2c2c;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.footer-column h4 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    color: var(--gold);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-column h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--gold);
+}
+
+.footer-logo h3 {
+    font-size: 1.8rem;
+    color: var(--white);
+    margin-bottom: 10px;
+}
+
+.footer-logo span {
+    color: var(--gold);
+}
+
+.footer-logo p {
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.footer-newsletter {
+    margin-top: 20px;
+}
+
+.footer-newsletter p {
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+.newsletter-form {
+    display: flex;
+    margin-top: 15px;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.newsletter-form button {
+    background: var(--gold);
+    color: var(--dark);
+    border: none;
+    padding: 0 20px;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background: var(--red);
+    color: var(--white);
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+    color: var(--white);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    opacity: 0.8;
+}
+
+.footer-column ul li a:hover {
+    opacity: 1;
+    color: var(--gold);
+    transform: translateX(5px);
+}
+
+.footer-column ul li a i {
+    margin-right: 10px;
+    font-size: 0.8rem;
+    color: var(--gold);
+}
+
+.contact-info {
+    margin-bottom: 25px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.contact-item i {
+    color: var(--gold);
+    margin-right: 15px;
+    margin-top: 5px;
+    font-size: 1.1rem;
+}
+
+.contact-item p {
+    opacity: 0.8;
+    line-height: 1.5;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: var(--white);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-link:hover {
+    background: white;
+    transform: translateY(-5px);
+    color: var(--dark);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.payment-methods {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.payment-methods p {
+    margin: 0;
+    opacity: 0.8;
+}
+
+.payment-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.payment-icons i {
+    font-size: 1.8rem;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.payment-icons i:hover {
+    opacity: 1;
+}
+
+.copyright p {
+    margin: 0;
+    opacity: 0.8;
+}
+
+.back-to-top {
+    width: 50px;
+    height: 50px;
+    background: var(--gold);
+    color: var(--dark);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.back-to-top:hover {
+    background: var(--red);
+    color: var(--white);
+    transform: translateY(-5px);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .payment-methods {
+        flex-direction: column;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loader-wrapper">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>Luxurious <span>Spa</span></h1>
+                </div>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Accueil</a></li>
+                        <li><a href="#about">À Propos</a></li>
+                        <li><a href="#why-us">Pourquoi Nous</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#location">Emplacement</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="floating-elements">
+            <div class="floating-element" style="top: 20%; left: 10%; width: 20px; height: 20px; animation: float 15s ease-in-out infinite;"></div>
+            <div class="floating-element" style="top: 60%; left: 5%; width: 30px; height: 30px; animation: float 12s ease-in-out infinite reverse;"></div>
+            <div class="floating-element" style="top: 30%; right: 15%; width: 25px; height: 25px; animation: float 18s ease-in-out infinite;"></div>
+            <div class="floating-element" style="bottom: 20%; right: 10%; width: 15px; height: 15px; animation: float 10s ease-in-out infinite reverse;"></div>
+        </div>
+        <div class="hero-content">
+            <h2>Bienvenue au Luxurious Spa Tanger</h2>
+            <p>Découvrez l'ultime expérience de bien-être dans un cadre luxueux et exotique</p>
+            <a href="#contact" class="btn">Réserver Maintenant</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>À Propos de Nous</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Une Oasis de Détente au Cœur de Tanger</h3>
+                    <p>Fondé en 2010, Luxurious Spa Tanger s'est établi comme la référence en matière de bien-être et de détendance au Maroc. Notre établissement allie traditions ancestrales et modernité pour vous offrir une expérience sensorielle incomparable.</p>
+                    <p>Notre équipe de thérapeutes experts, formés aux techniques les plus avancées, est dédiée à votre bien-être. Chaque traitement est personnalisé pour répondre à vos besoins spécifiques et vous garantir une relaxation profonde.</p>
+                    <p>Dans un cadre inspiré des hammams marocains traditionnels mais avec une touche contemporaine et luxueuse, nous vous invitons à un voyage sensoriel où le temps s'arrête et où seul compte votre bien-être.</p>
+                    <a href="#services" class="btn">Découvrir nos Services</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Intérieur du spa">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section class="why-us" id="why-us">
+        <div class="container">
+            <div class="section-title">
+                <h2>Pourquoi Nous Choisir</h2>
+            </div>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-spa"></i>
+                    <h3>Expertise de Classe Mondiale</h3>
+                    <p>Nos thérapeutes sont certifiés et formés aux techniques de massage les plus avancées.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-gem"></i>
+                    <h3>Environnement Luxueux</h3>
+                    <p>Un cadre raffiné et exclusif conçu pour votre détente et bien-être.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Produits Naturels</h3>
+                    <p>Nous utilisons exclusivement des produits naturels et biologiques pour tous nos soins.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nos Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service">
+                    <div class="service-image">
+                        <img src="https://plus.unsplash.com/premium_photo-1661407350987-9e9319ac11e6?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Massage Suédois">
+                    </div>
+                    <div class="service-content">
+                        <h3>Massage Suédois</h3>
+                        <p>Un massage relaxant qui améliore la circulation et réduit le stress.</p>
+                        <span class="price">À partir de 400 MAD</span>
+                    </div>
+                </div>
+                <div class="service">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1714648775477-a15cc5aed21f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hammam Traditionnel">
+                    </div>
+                    <div class="service-content">
+                        <h3>Hammam Traditionnel</h3>
+                        <p>Expérience de purification complète avec gommage au savon noir.</p>
+                        <span class="price">À partir de 300 MAD</span>
+                    </div>
+                </div>
+                <div class="service">
+                    <div class="service-image">
+                        <img src="https://plus.unsplash.com/premium_photo-1664187387330-d09bb508b791?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Soin du Visage">
+                    </div>
+                    <div class="service-content">
+                        <h3>Soin du Visage Luxury</h3>
+                        <p>Soin revitalisant avec des produits naturels pour une peau éclatante.</p>
+                        <span class="price">À partir de 450 MAD</span>
+                    </div>
+                </div>
+                <div class="service">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Massaux aux Pierres Chaudes">
+                    </div>
+                    <div class="service-content">
+                        <h3>Massage aux Pierres Chaudes</h3>
+                        <p>Thérapie profondément relaxante utilisant des pierres basaltiques chauffées.</p>
+                        <span class="price">À partir de 500 MAD</span>
+                    </div>
+                </div>
+                <div class="service">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1583417267826-aebc4d1542e1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Enveloppement Corporel">
+                    </div>
+                    <div class="service-content">
+                        <h3>Enveloppement Corporel</h3>
+                        <p>Détoxification et hydratation profonde avec des ingrédients naturels.</p>
+                        <span class="price">À partir de 450 MAD</span>
+                    </div>
+                </div>
+                <div class="service">
+                    <div class="service-image">
+                        <img src="https://plus.unsplash.com/premium_photo-1661505084348-7daeffae433f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Soin Des Mains et Pieds">
+                    </div>
+                    <div class="service-content">
+                        <h3>Soin Des Mains et Pieds</h3>
+                        <p>Manucure et pédicure de luxe avec massage et produits premium.</p>
+                        <span class="price">À partir de 250 MAD</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location" id="location">
+        <div class="container">
+            <div class="section-title">
+                <h2>Notre Emplacement</h2>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51782.856909497816!2d-5.876379434863636!3d35.75949400412536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0b875cf04c132d%3A0x76ce0f43c5dc80f6!2sTangier!5e0!3m2!1sen!2sma!4v1686743701225!5m2!1sen!2sma" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="address">
+                <p><i class="fas fa-map-marker-alt"></i> Avenue Mohammed VI, Tanger 90000, Maroc</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contactez-Nous</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+212 5 39 33 33 33</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>info@luxuriousspatanger.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <p>Lundi - Dimanche: 9h00 - 21h00</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Avenue Mohammed VI, Tanger 90000, Maroc</p>
+                    </div>
+
+                </div>
+                <div class="contact-form">
+                    <h3>Prendre Rendez-vous</h3>
+                    <form id="appointment-form">
+                        <div class="form-group">
+                            <label for="name">Nom Complet</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Téléphone</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service</label>
+                            <select id="service" required>
+                                <option value="">Sélectionnez un service</option>
+                                <option value="Massage Suédois">Massage Suédois</option>
+                                <option value="Hammam Traditionnel">Hammam Traditionnel</option>
+                                <option value="Soin du Visage">Soin du Visage Luxury</option>
+                                <option value="Massage aux Pierres Chaudes">Massage aux Pierres Chaudes</option>
+                                <option value="Enveloppement Corporel">Enveloppement Corporel</option>
+                                <option value="Soin Des Mains et Pieds">Soin Des Mains et Pieds</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date souhaitée</label>
+                            <input type="date" id="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message (Optionnel)</label>
+                            <textarea id="message"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Réserver</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Replace your existing footer with this code -->
+<footer>
+    <div class="footer-wave">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+            <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+            <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+        </svg>
+    </div>
+    
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <h3>Luxurious <span>Spa</span></h3>
+                    <p>Votre oasis de bien-être au cœur de Tanger</p>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Newsletter</h4>
+                    <p>Inscrivez-vous pour recevoir nos offres exclusives</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Votre email" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Liens Rapides</h4>
+                <ul>
+                    <li><a href="#home"><i class="fas fa-chevron-right"></i> Accueil</a></li>
+                    <li><a href="#about"><i class="fas fa-chevron-right"></i> À Propos</a></li>
+                    <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                    <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Politique de Confidentialité</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Nos Services</h4>
+                <ul>
+                    <li><a href="#"><i class="fas fa-spa"></i> Massages</a></li>
+                    <li><a href="#"><i class="fas fa-water"></i> Hammam Traditionnel</a></li>
+                    <li><a href="#"><i class="fas fa-star"></i> Soins du Visage</a></li>
+                    <li><a href="#"><i class="fas fa-gem"></i> Soins Corporels</a></li>
+                    <li><a href="#"><i class="fas fa-hand-sparkles"></i> Soins Mains & Pieds</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Contactez-Nous</h4>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Avenue Mohammed VI, Tanger 90000, Maroc</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+212 5 39 33 33 33</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>info@luxuriousspatanger.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <p>Lun-Dim: 9h00 - 21h00</p>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="payment-methods">
+                <p>Méthodes de Paiement:</p>
+                <div class="payment-icons">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-cc-apple-pay"></i>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Luxurious Spa Tanger. Tous droits réservés.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Loading Animation
+        window.addEventListener('load', function() {
+            const loaderWrapper = document.querySelector('.loader-wrapper');
+            setTimeout(function() {
+                loaderWrapper.classList.add('hidden');
+            }, 1000);
+        });
+
+        // Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
+        
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+            
+            if (nav.classList.contains('active')) {
+                menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    nav.classList.remove('active');
+                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const scrollTop = document.querySelector('.scroll-top');
+            
+            if (window.scrollY > 100) {
+                header.classList.add('header-scrolled');
+                scrollTop.classList.add('active');
+            } else {
+                header.classList.remove('header-scrolled');
+                scrollTop.classList.remove('active');
+            }
+        });
+        
+        // Scroll to Top
+        document.querySelector('.scroll-top').addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Form Submission
+        const form = document.getElementById('appointment-form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Simple form validation
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const date = document.getElementById('date').value;
+            
+            if (!name || !email || !phone || !service || !date) {
+                alert('Veuillez remplir tous les champs obligatoires.');
+                return;
+            }
+            
+            // Simulate form submission
+            const btn = form.querySelector('button');
+            const originalText = btn.textContent;
+            
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                alert('Merci pour votre réservation! Nous vous contacterons bientôt pour confirmer.');
+                form.reset();
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }, 2000);
+        });
+        
+        // Animation on Scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for animation
+        document.querySelectorAll('.hero-content').forEach(el => {
+            setTimeout(() => {
+                el.classList.add('animate');
+            }, 500);
+        });
+        
+        document.querySelectorAll('.about-text, .about-image, .feature, .service, .map-container, .address, .contact-info, .contact-form').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Floating animation for hero elements
+        const floatingElements = document.querySelectorAll('.floating-element');
+        floatingElements.forEach(el => {
+            const randomDelay = Math.random() * 5;
+            el.style.animationDelay = `${randomDelay}s`;
+        });
+        
+        // Add keyframes for floating animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes float {
+                0% {
+                    transform: translateY(0) rotate(0deg);
+                }
+                50% {
+                    transform: translateY(-20px) rotate(10deg);
+                }
+                100% {
+                    transform: translateY(0) rotate(0deg);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        //---------------------------------------------------------------------------------------------------------------------------------------------------
+        // Parallax effect for hero section
+function initParallax() {
+    const hero = document.querySelector('.hero');
+    const heroContent = document.querySelector('.hero-content');
+    
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.5;
+        hero.style.transform = `translate3d(0px, ${rate}px, 0px)`;
+        heroContent.style.transform = `translate3d(0px, ${rate * 0.4}px, 0px)`;
+    });
+}
+
+// Text reveal animation
+function initTextReveal() {
+    const revealElements = document.querySelectorAll('.section-title, .about-text h3, .feature h3, .service h3');
+    
+    revealElements.forEach(element => {
+        const words = element.textContent.split(' ');
+        element.innerHTML = '';
+        
+        words.forEach(word => {
+            const span = document.createElement('span');
+            span.textContent = word + ' ';
+            span.style.opacity = '0';
+            span.style.transform = 'translateY(20px)';
+            span.style.display = 'inline-block';
+            span.style.transition = 'all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            element.appendChild(span);
+        });
+    });
+    
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const spans = entry.target.querySelectorAll('span');
+                spans.forEach((span, index) => {
+                    setTimeout(() => {
+                        span.style.opacity = '1';
+                        span.style.transform = 'translateY(0)';
+                    }, index * 100);
+                });
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    revealElements.forEach(element => {
+        revealObserver.observe(element);
+    });
+}
+
+// Interactive service cards
+function initServiceInteraction() {
+    const services = document.querySelectorAll('.service');
+    
+    services.forEach(service => {
+        service.addEventListener('mouseenter', () => {
+            service.querySelector('.service-content').style.transform = 'translateY(-10px)';
+            service.querySelector('.price').style.color = 'var(--gold)';
+        });
+        
+        service.addEventListener('mouseleave', () => {
+            service.querySelector('.service-content').style.transform = 'translateY(0)';
+            service.querySelector('.price').style.color = 'var(--red)';
+        });
+        
+        // Click to expand service details
+        service.addEventListener('click', function(e) {
+            if (!e.target.classList.contains('btn')) {
+                this.classList.toggle('expanded');
+                
+                if (this.classList.contains('expanded')) {
+                    const content = this.querySelector('.service-content');
+                    const expandedContent = document.createElement('div');
+                    expandedContent.className = 'expanded-content';
+                    expandedContent.innerHTML = `
+                        <p>Duration: 60 minutes</p>
+                        <p>Our expert therapists use premium products to ensure maximum relaxation.</p>
+                        <button class="btn book-now">Book Now</button>
+                    `;
+                    content.appendChild(expandedContent);
+                    
+                    setTimeout(() => {
+                        expandedContent.style.opacity = '1';
+                        expandedContent.style.transform = 'translateY(0)';
+                    }, 10);
+                } else {
+                    const expandedContent = this.querySelector('.expanded-content');
+                    if (expandedContent) {
+                        expandedContent.remove();
+                    }
+                }
+            }
+        });
+    });
+}
+
+// Animated counter for stats
+function initCounter() {
+    const counterSection = document.createElement('section');
+    counterSection.className = 'stats';
+    counterSection.innerHTML = `
+        <div class="container">
+            <div class="section-title">
+                <h2>Notre Impact</h2>
+            </div>
+            <div class="stats-grid">
+                <div class="stat">
+                    <h3 class="counter" data-target="5000">0</h3>
+                    <p>Clients Satisfaits</p>
+                </div>
+                <div class="stat">
+                    <h3 class="counter" data-target="12">0</h3>
+                    <p>Années d'Expérience</p>
+                </div>
+                <div class="stat">
+                    <h3 class="counter" data-target="50">0</h3>
+                    <p>Services Uniques</p>
+                </div>
+                <div class="stat">
+                    <h3 class="counter" data-target="98">0</h3>
+                    <p>% de Satisfaction</p>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    // Add CSS for stats section
+    const style = document.createElement('style');
+    style.textContent = `
+        .stats {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--light-beige) 0%, #f0e6d9 100%);
+            text-align: center;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .stat {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        .stat:hover {
+            transform: translateY(-5px);
+        }
+        .stat h3 {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+        .stat p {
+            font-weight: 500;
+            color: var(--dark);
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Insert after why-us section
+    document.querySelector('.why-us').insertAdjacentElement('afterend', counterSection);
+    
+    // Counter animation
+    const counters = document.querySelectorAll('.counter');
+    let animated = false;
+    
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !animated) {
+                animated = true;
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const increment = target / 100;
+                    
+                    const updateCounter = () => {
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + increment);
+                            setTimeout(updateCounter, 20);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCounter();
+                });
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    counterObserver.observe(counterSection);
+}
+
+// Interactive background particles
+function initParticles() {
+    const canvas = document.createElement('canvas');
+    canvas.id = 'particle-canvas';
+    canvas.style.position = 'fixed';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+    canvas.style.zIndex = '-1';
+    canvas.style.pointerEvents = 'none';
+    document.body.appendChild(canvas);
+    
+    const ctx = canvas.getContext('2d');
+    let particlesArray = [];
+    
+    // Set canvas size
+    function setCanvasSize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    
+    setCanvasSize();
+    window.addEventListener('resize', setCanvasSize);
+    
+    // Particle class
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 3 + 1;
+            this.speedX = Math.random() * 1 - 0.5;
+            this.speedY = Math.random() * 1 - 0.5;
+            this.color = `rgba(${Math.random() * 50 + 150}, ${Math.random() * 50 + 150}, ${Math.random() * 50 + 180}, ${Math.random() * 0.5 + 0.2})`;
+        }
+        
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            
+            if (this.x > canvas.width || this.x < 0) {
+                this.speedX = -this.speedX;
+            }
+            if (this.y > canvas.height || this.y < 0) {
+                this.speedY = -this.speedY;
+            }
+        }
+        
+        draw() {
+            ctx.fillStyle = this.color;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+    
+    // Initialize particles
+    function init() {
+        particlesArray = [];
+        const numberOfParticles = (canvas.width * canvas.height) / 9000;
+        
+        for (let i = 0; i < numberOfParticles; i++) {
+            particlesArray.push(new Particle());
+        }
+    }
+    
+    // Connect particles with lines
+    function connect() {
+        const maxDistance = 100;
+        for (let a = 0; a < particlesArray.length; a++) {
+            for (let b = a; b < particlesArray.length; b++) {
+                const dx = particlesArray[a].x - particlesArray[b].x;
+                const dy = particlesArray[a].y - particlesArray[b].y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < maxDistance) {
+                    ctx.strokeStyle = `rgba(212, 175, 55, ${1 - distance / maxDistance})`;
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                    ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                    ctx.stroke();
+                }
+            }
+        }
+    }
+    
+    // Animation loop
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        for (let i = 0; i < particlesArray.length; i++) {
+            particlesArray[i].update();
+            particlesArray[i].draw();
+        }
+        
+        connect();
+        requestAnimationFrame(animate);
+    }
+    
+    init();
+    animate();
+    
+    // Reinitialize on resize
+    window.addEventListener('resize', () => {
+        setCanvasSize();
+        init();
+    });
+}
+
+// Cursor effects
+
+    // Expand cursor on clickable elements
+    const clickables = document.querySelectorAll('a, button, .service, .feature');
+    clickables.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            cursor.classList.add('cursor-expand');
+        });
+        
+        element.addEventListener('mouseleave', () => {
+            cursor.classList.remove('cursor-expand');
+        });
+    });
+
+
+// Page transition effects
+function initPageTransitions() {
+    // Add transition overlay
+    const transitionOverlay = document.createElement('div');
+    transitionOverlay.className = 'transition-overlay';
+    transitionOverlay.style.position = 'fixed';
+    transitionOverlay.style.top = '0';
+    transitionOverlay.style.left = '0';
+    transitionOverlay.style.width = '100%';
+    transitionOverlay.style.height = '100%';
+    transitionOverlay.style.backgroundColor = 'var(--light-beige)';
+    transitionOverlay.style.zIndex = '9999';
+    transitionOverlay.style.opacity = '0';
+    transitionOverlay.style.pointerEvents = 'none';
+    transitionOverlay.style.transition = 'opacity 0.6s ease';
+    document.body.appendChild(transitionOverlay);
+    
+    // Handle internal link clicks
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            const href = link.getAttribute('href');
+            if (href !== '#') {
+                // Show transition
+                transitionOverlay.style.opacity = '1';
+                transitionOverlay.style.pointerEvents = 'auto';
+                
+                setTimeout(() => {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                    
+                    // Hide transition
+                    setTimeout(() => {
+                        transitionOverlay.style.opacity = '0';
+                        transitionOverlay.style.pointerEvents = 'none';
+                    }, 800);
+                }, 400);
+            }
+        });
+    });
+}
+
+// Initialize all effects when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    initParallax();
+    initTextReveal();
+    initServiceInteraction();
+    initCounter();
+    initParticles();
+    initCustomCursor();
+    initPageTransitions();
+    
+    // Add subtle animation to logo on load
+    const logo = document.querySelector('.logo');
+    setTimeout(() => {
+        logo.style.transform = 'rotateY(360deg)';
+        logo.style.transition = 'transform 1.5s ease';
+    }, 1000);
+    
+    // Animate menu items on load
+    const menuItems = document.querySelectorAll('nav ul li');
+    menuItems.forEach((item, index) => {
+        setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+            item.style.transition = 'all 0.5s ease';
+        }, 500 + (index * 100));
+    });
+});
+
+// Add keyboard navigation
+document.addEventListener('keydown', (e) => {
+    // Press 'S' to scroll to services
+    if (e.key === 's' || e.key === 'S') {
+        e.preventDefault();
+        document.querySelector('#services').scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    // Press 'C' to scroll to contact
+    if (e.key === 'c' || e.key === 'C') {
+        e.preventDefault();
+        document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    // Press 'H' to scroll to home
+    if (e.key === 'h' || e.key === 'H') {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+});
+
+// Add Easter egg - spa sounds on click
+document.addEventListener('click', function(e) {
+    // Only trigger on body clicks (not interactive elements)
+    if (e.target === document.body || e.target.classList.contains('hero')) {
+        const sounds = [
+            'https://assets.mixkit.co/sfx/preview/mixkit-bubble-pop-up-3006.mp3',
+            'https://assets.mixkit.co/sfx/preview/mixkit-wind-chimes-1005.mp3',
+            'https://assets.mixkit.co/sfx/preview/mixkit-singing-bowl-hit-1092.mp3'
+        ];
+        
+        const audio = new Audio(sounds[Math.floor(Math.random() * sounds.length)]);
+        audio.volume = 0.3;
+        audio.play();
+        
+        // Create visual effect
+        const effect = document.createElement('div');
+        effect.style.position = 'fixed';
+        effect.style.left = `${e.clientX}px`;
+        effect.style.top = `${e.clientY}px`;
+        effect.style.width = '50px';
+        effect.style.height = '50px';
+        effect.style.borderRadius = '50%';
+        effect.style.background = 'radial-gradient(circle, var(--gold) 0%, transparent 70%)';
+        effect.style.pointerEvents = 'none';
+        effect.style.zIndex = '999';
+        effect.style.transform = 'translate(-50%, -50%) scale(0)';
+        effect.style.opacity = '0.7';
+        effect.style.transition = 'all 0.5s ease-out';
+        
+        document.body.appendChild(effect);
+        
+        setTimeout(() => {
+            effect.style.transform = 'translate(-50%, -50%) scale(2)';
+            effect.style.opacity = '0';
+        }, 10);
+        
+        setTimeout(() => {
+            effect.remove();
+        }, 500);
+    }
+});
+//----------------------------------------------------------------------------------------------------------------------------------------------
+// 3D Tilt Effect for Cards
+function init3DTilt() {
+    const tiltElements = document.querySelectorAll('.service, .feature, .card');
+    
+    tiltElements.forEach(el => {
+        el.addEventListener('mousemove', (e) => {
+            const rect = el.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateY = (x - centerX) / 25;
+            const rotateX = (centerY - y) / 25;
+            
+            el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+            el.style.boxShadow = `${-rotateY * 2}px ${rotateX * 2}px 30px rgba(0, 0, 0, 0.15)`;
+        });
+        
+        el.addEventListener('mouseleave', () => {
+            el.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+            el.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+            
+            // Add a subtle transition back
+            setTimeout(() => {
+                el.style.transition = 'transform 0.5s ease, box-shadow 0.5s ease';
+                setTimeout(() => {
+                    el.style.transition = '';
+                }, 500);
+            }, 10);
+        });
+        
+        el.addEventListener('mouseenter', () => {
+            el.style.transition = 'none';
+        });
+    });
+}
+
+// Interactive Background Shader
+function initInteractiveBackground() {
+    const canvas = document.createElement('canvas');
+    canvas.id = 'interactive-bg';
+    canvas.style.position = 'fixed';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+    canvas.style.zIndex = '-1';
+    document.body.appendChild(canvas);
+    
+    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    if (!gl) return;
+    
+    // Set canvas size
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+    
+    // Vertex shader
+    const vs = `
+        attribute vec2 position;
+        void main() {
+            gl_Position = vec4(position, 0.0, 1.0);
+        }
+    `;
+    
+    // Fragment shader with interactive waves
+    const fs = `
+        precision highp float;
+        uniform float time;
+        uniform vec2 resolution;
+        uniform vec2 mouse;
+        
+        void main() {
+            vec2 uv = gl_FragCoord.xy / resolution.xy;
+            uv = uv * 2.0 - 1.0;
+            uv.x *= resolution.x / resolution.y;
+            
+            // Create wave effect based on mouse position
+            float dist = distance(uv, mouse * 2.0 - 1.0);
+            float wave = sin(dist * 20.0 - time * 2.0) * 0.5 + 0.5;
+            
+            // Spa-like colors (gold and beige)
+            vec3 color1 = vec3(0.831, 0.686, 0.216); // gold
+            vec3 color2 = vec3(0.973, 0.957, 0.941); // light beige
+            
+            // Mix colors based on wave
+            vec3 color = mix(color1, color2, wave * 0.3);
+            
+            // Add some sparkle
+            float sparkle = sin(uv.x * 50.0 + time) * sin(uv.y * 50.0 + time) * 0.1;
+            color += vec3(sparkle);
+            
+            gl_FragColor = vec4(color, 0.1);
+        }
+    `;
+    
+    // Compile shader
+    const vertexShader = gl.createShader(gl.VERTEX_SHADER);
+    gl.shaderSource(vertexShader, vs);
+    gl.compileShader(vertexShader);
+    
+    const fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
+    gl.shaderSource(fragmentShader, fs);
+    gl.compileShader(fragmentShader);
+    
+    const program = gl.createProgram();
+    gl.attachShader(program, vertexShader);
+    gl.attachShader(program, fragmentShader);
+    gl.linkProgram(program);
+    gl.useProgram(program);
+    
+    // Create rectangle
+    const vertices = new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]);
+    const buffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+    gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
+    
+    const position = gl.getAttribLocation(program, 'position');
+    gl.enableVertexAttribArray(position);
+    gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
+    
+    // Get uniform locations
+    const timeUniform = gl.getUniformLocation(program, 'time');
+    const resolutionUniform = gl.getUniformLocation(program, 'resolution');
+    const mouseUniform = gl.getUniformLocation(program, 'mouse');
+    
+    let mousePos = [0.5, 0.5];
+    document.addEventListener('mousemove', (e) => {
+        mousePos = [e.clientX / window.innerWidth, e.clientY / window.innerHeight];
+    });
+    
+    let startTime = Date.now();
+    
+    function animate() {
+        const currentTime = (Date.now() - startTime) / 1000;
+        
+        gl.uniform1f(timeUniform, currentTime);
+        gl.uniform2f(resolutionUniform, gl.drawingBufferWidth, gl.drawingBufferHeight);
+        gl.uniform2f(mouseUniform, mousePos[0], mousePos[1]);
+        
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+        requestAnimationFrame(animate);
+    }
+    
+    animate();
+}
+
+// Morphing Text Animation
+function initMorphingText() {
+    const heroTitle = document.querySelector('.hero h2');
+    if (!heroTitle) return;
+    
+    const originalText = heroTitle.textContent;
+    const texts = [
+        "Bienvenue au Luxurious Spa Tanger",
+        "Évasion Sensorielle Totale",
+        "L'Art du Bien-être",
+        "Paradis de Détente"
+    ];
+    
+    // Create a canvas for the morphing effect
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.style.position = 'absolute';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.pointerEvents = 'none';
+    canvas.style.zIndex = '5';
+    heroTitle.parentNode.appendChild(canvas);
+    
+    function resizeCanvas() {
+        canvas.width = heroTitle.offsetWidth;
+        canvas.height = heroTitle.offsetHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    
+    let currentText = originalText;
+    let targetText = texts[0];
+    let textIndex = 0;
+    let progress = 0;
+    let animationId;
+    
+    function updateText() {
+        progress += 0.01;
+        if (progress >= 1) {
+            progress = 0;
+            currentText = targetText;
+            textIndex = (textIndex + 1) % texts.length;
+            targetText = texts[textIndex];
+        }
+        
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.font = 'bold 3.5rem "Playfair Display", serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillStyle = '#ffffff';
+        
+        // Draw intermediate text (simple morphing effect)
+        const intermediateText = currentText.substring(0, Math.floor(currentText.length * (1 - progress))) + 
+                               targetText.substring(0, Math.floor(targetText.length * progress));
+        
+        ctx.fillText(intermediateText, canvas.width / 2, canvas.height / 2);
+        
+        animationId = requestAnimationFrame(updateText);
+    }
+    
+    // Start after 3 seconds
+    setTimeout(() => {
+        heroTitle.style.visibility = 'hidden';
+        updateText();
+    }, 3000);
+}
+
+// Floating Flower Particles
+function initFloatingFlowers() {
+    const particlesContainer = document.createElement('div');
+    particlesContainer.style.position = 'fixed';
+    particlesContainer.style.top = '0';
+    particlesContainer.style.left = '0';
+    particlesContainer.style.width = '100%';
+    particlesContainer.style.height = '100%';
+    particlesContainer.style.pointerEvents = 'none';
+    particlesContainer.style.zIndex = '0';
+    particlesContainer.style.overflow = 'hidden';
+    document.body.appendChild(particlesContainer);
+    
+    const flowers = ['🌸', '🌺', '🌼', '🌷', '💮', '🪷'];
+    const colors = ['#ffb7c5', '#ff9eb5', '#ff85a5', '#ff6c95', '#ff5385'];
+    
+    for (let i = 0; i < 15; i++) {
+        createFlower(particlesContainer);
+    }
+    
+    function createFlower(container) {
+        const flower = document.createElement('div');
+        flower.style.position = 'absolute';
+        flower.style.fontSize = Math.random() * 20 + 15 + 'px';
+        flower.style.opacity = Math.random() * 0.5 + 0.3;
+        flower.style.color = colors[Math.floor(Math.random() * colors.length)];
+        flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
+        
+        // Random starting position
+        const startX = Math.random() * 100;
+        const startY = Math.random() * 100;
+        flower.style.left = startX + 'vw';
+        flower.style.top = startY + 'vh';
+        
+        container.appendChild(flower);
+        
+        // Animate the flower
+        animateFlower(flower);
+    }
+    
+    function animateFlower(flower) {
+        const keyframes = [
+            { transform: `translate(0, 0) rotate(0deg)`, opacity: flower.style.opacity },
+            { transform: `translate(${Math.random() * 30 - 15}vw, ${Math.random() * 30 - 15}vh) rotate(180deg)`, opacity: Math.random() * 0.5 + 0.1 },
+            { transform: `translate(${Math.random() * 60 - 30}vw, ${Math.random() * 60 - 30}vh) rotate(360deg)`, opacity: Math.random() * 0.5 + 0.3 }
+        ];
+        
+        const options = {
+            duration: Math.random() * 20000 + 10000,
+            iterations: Infinity,
+            direction: 'alternate',
+            easing: 'ease-in-out'
+        };
+        
+        flower.animate(keyframes, options);
+    }
+}
+
+// Scroll-Triggered Animations with GSAP-like easing
+function initAdvancedScrollAnimations() {
+    const animatedElements = document.querySelectorAll('.service, .feature, .about-text, .about-image');
+    
+    // Custom easing function
+    function easeOutQuart(x) {
+        return 1 - Math.pow(1 - x, 4);
+    }
+    
+    function checkElements() {
+        animatedElements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+            
+            if (rect.top < viewportHeight * 0.8) {
+                const progress = 1 - (rect.top / (viewportHeight * 0.8));
+                const easedProgress = easeOutQuart(progress);
+                
+                // Apply different animations based on element type
+                if (el.classList.contains('service')) {
+                    el.style.transform = `translateY(${(1 - easedProgress) * 50}px) scale(${0.9 + easedProgress * 0.1})`;
+                    el.style.opacity = easedProgress;
+                } else if (el.classList.contains('feature')) {
+                    el.style.transform = `translateX(${el.dataset.direction === 'right' ? (1 - easedProgress) * -50 : (1 - easedProgress) * 50}px) rotate(${(1 - easedProgress) * 10}deg)`;
+                    el.style.opacity = easedProgress;
+                } else if (el.classList.contains('about-text')) {
+                    el.style.transform = `translateX(${(1 - easedProgress) * -30}px)`;
+                    el.style.opacity = easedProgress;
+                } else if (el.classList.contains('about-image')) {
+                    el.style.transform = `translateX(${(1 - easedProgress) * 30}px)`;
+                    el.style.opacity = easedProgress;
+                }
+            }
+        });
+    }
+    
+    // Set initial directions for features
+    document.querySelectorAll('.feature').forEach((el, i) => {
+        el.dataset.direction = i % 2 === 0 ? 'left' : 'right';
+    });
+    
+    window.addEventListener('scroll', checkElements);
+    checkElements(); // Initial check
+}
+
+// Interactive Product Showcase
+function initProductShowcase() {
+    const showcaseSection = document.createElement('section');
+    showcaseSection.className = 'product-showcase';
+    showcaseSection.innerHTML = `
+        <div class="container">
+            <div class="section-title">
+                <h2>Nos Produts Exclusifs</h2>
+            </div>
+            <div class="showcase-container">
+                <div class="product" data-product="1">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Huile Massage">
+                    </div>
+                    <div class="product-info">
+                        <h3>Huile de Massage Argan</h3>
+                        <p>Notre huile exclusive à base d'argan marocain</p>
+                        <span class="price">250 MAD</span>
+                    </div>
+                </div>
+                <div class="product" data-product="2">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Savon Noir">
+                    </div>
+                    <div class="product-info">
+                        <h3>Savon Noir Traditionnel</h3>
+                        <p>Purifiant et nourrissant pour la peau</p>
+                        <span class="price">180 MAD</span>
+                    </div>
+                </div>
+                <div class="product" data-product="3">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1571781926291-9d9d4efc9c0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Bougie Parfumée">
+                    </div>
+                    <div class="product-info">
+                        <h3>Bougie Parfumée Relaxante</h3>
+                        <p>Parfum santal et vanille pour une ambiance apaisante</p>
+                        <span class="price">320 MAD</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    // Add CSS for product showcase
+    const style = document.createElement('style');
+    style.textContent = `
+        .product-showcase {
+            padding: 100px 0;
+            background: linear-gradient(to bottom, var(--light-beige) 0%, #f8f4f0 100%);
+        }
+        .showcase-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .product {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            cursor: pointer;
+        }
+        .product:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        .product-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s ease;
+        }
+        .product:hover .product-image img {
+            transform: scale(1.1);
+        }
+        .product-info {
+            padding: 20px;
+        }
+        .product-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--red);
+        }
+        .product-info p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .price {
+            font-weight: bold;
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+        .product-detail {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+        }
+        .product-detail.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .detail-content {
+            background: white;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            transform: scale(0.9);
+            transition: transform 0.5s ease;
+        }
+        .product-detail.active .detail-content {
+            transform: scale(1);
+        }
+        .detail-image {
+            flex: 1;
+            min-height: 400px;
+        }
+        .detail-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .detail-info {
+            flex: 1;
+            padding: 30px;
+            position: relative;
+        }
+        .close-detail {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Insert after services section
+    document.querySelector('.services').insertAdjacentElement('afterend', showcaseSection);
+    
+    // Add product detail functionality
+    const products = document.querySelectorAll('.product');
+    const detailOverlay = document.createElement('div');
+    detailOverlay.className = 'product-detail';
+    detailOverlay.innerHTML = `
+        <div class="detail-content">
+            <div class="detail-image">
+                <img src="" alt="">
+            </div>
+            <div class="detail-info">
+                <button class="close-detail">&times;</button>
+                <h3></h3>
+                <p class="detail-description"></p>
+                <p class="detail-price"></p>
+                <a href="#contact" class="btn">Commander</a>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(detailOverlay);
+    
+    products.forEach(product => {
+        product.addEventListener('click', () => {
+            const imgSrc = product.querySelector('img').src;
+            const title = product.querySelector('h3').textContent;
+            const description = product.querySelector('p').textContent;
+            const price = product.querySelector('.price').textContent;
+            
+            detailOverlay.querySelector('.detail-image img').src = imgSrc;
+            detailOverlay.querySelector('.detail-info h3').textContent = title;
+            detailOverlay.querySelector('.detail-description').textContent = description;
+            detailOverlay.querySelector('.detail-price').textContent = price;
+            
+            detailOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+    
+    detailOverlay.querySelector('.close-detail').addEventListener('click', () => {
+        detailOverlay.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+}
+// Footer functionality
+function initFooter() {
+    // Back to top button
+    const backToTop = document.querySelector('.back-to-top');
+    
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Show/hide back to top button
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+            backToTop.style.opacity = '1';
+            backToTop.style.visibility = 'visible';
+        } else {
+            backToTop.style.opacity = '0';
+            backToTop.style.visibility = 'hidden';
+        }
+    });
+    
+    // Newsletter form submission
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const emailInput = newsletterForm.querySelector('input[type="email"]');
+            const email = emailInput.value.trim();
+            
+            if (email) {
+                // Simulate form submission
+                emailInput.value = '';
+                
+                // Show success message
+                const successMsg = document.createElement('p');
+                successMsg.textContent = 'Merci pour votre inscription!';
+                successMsg.style.color = 'var(--gold)';
+                successMsg.style.marginTop = '10px';
+                newsletterForm.appendChild(successMsg);
+                
+                setTimeout(() => {
+                    successMsg.remove();
+                }, 3000);
+            }
+        });
+    }
+    
+    // Footer link animations
+    const footerLinks = document.querySelectorAll('footer a');
+    footerLinks.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+            link.style.transform = 'translateX(5px)';
+        });
+        
+        link.addEventListener('mouseleave', () => {
+            link.style.transform = 'translateX(0)';
+        });
+    });
+}
+
+// Initialize footer when DOM is loaded
+document.addEventListener('DOMContentLoaded', initFooter);
+    </script>
+</body>
+</html>

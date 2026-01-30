@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>LuxCar — Luxury Car Rental</title>
+<link href="autologo.jpg" rel="icon"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&amp;family=Playfair+Display:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+    :root{
+      --bg:#0f0f11;
+      --card:#0b0b0c;
+      --muted:#a9a9a9;
+      --gold1:#d4af37;
+      --gold2:#f1c40f;
+      --glass: rgba(255,255,255,0.04);
+      --maxw:1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#080809 0%, #0f0f11 100%);color:#eee;font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
+
+    /* ===== NAV ===== */
+    header{position:fixed;inset:0 0 auto 0;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;z-index:1200;backdrop-filter:blur(6px);background:linear-gradient(180deg, rgba(11,11,12,0.35), rgba(11,11,12,0.15));border-bottom:1px solid rgba(255,255,255,0.03)}
+    .brand{display:flex;align-items:center;gap:.8rem;color:var(--gold1);font-weight:700}
+    .brand img{width:42px;height:42px;border-radius:8px;object-fit:cover}
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{color:#e9e9e9;text-decoration:none;font-weight:600;padding:8px 10px;border-radius:8px;transition:all .22s}
+    nav a:hover{color:var(--bg);background:linear-gradient(90deg,var(--gold1),var(--gold2));transform:translateY(-3px)}
+    .cta-small{background:linear-gradient(90deg,var(--gold1),var(--gold2));color:#111;padding:8px 14px;border-radius:999px;font-weight:700}
+
+    /* ===== HERO ===== */
+    .hero{height:90vh;max-height:920px;display:grid;place-items:center;position:relative;overflow:hidden;}
+    .hero .stage{width:100%;max-width:var(--maxw);padding:140px 28px 40px;display:grid;grid-template-columns:1fr 460px;gap:40px;align-items:center}
+
+    .intro{align-self:center}
+    .eyebrow{color:var(--gold1);font-weight:700;letter-spacing:1px;margin-bottom:.6rem}
+    h1{font-family:Playfair Display,serif;font-size:48px;line-height:1.02;margin:0 0 16px;color:#fff}
+    p.lead{color:var(--muted);font-size:18px;max-width:720px}
+
+    .hero-cta{margin-top:22px;display:flex;gap:14px;align-items:center}
+    .btn{padding:14px 22px;border-radius:12px;border:none;cursor:pointer;font-weight:700}
+    .btn.primary{background:linear-gradient(90deg,var(--gold1),var(--gold2));color:#0b0b0c}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:#fff}
+
+    /* right visual panel */
+    .visual{position:relative;height:420px;border-radius:20px;overflow:hidden;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.04);box-shadow:0 20px 60px rgba(2,2,2,0.6)}
+    .visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 700ms cubic-bezier(.2,.9,.3,1)}
+    .visual .overlay{position:absolute;inset:auto 0 12px 12px;padding:12px;border-radius:12px;width:260px;background:linear-gradient(180deg, rgba(11,11,12,0.6), rgba(11,11,12,0.35));backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.03)}
+    .visual .specs{display:flex;flex-direction:column;gap:10px}
+    .spec{display:flex;justify-content:space-between;align-items:center;color:#ddd;font-weight:600}
+
+    /* parallax sparkles */
+    .sparkle{position:absolute;pointer-events:none;mix-blend-mode:screen;width:14px;height:14px;border-radius:50%;background:linear-gradient(45deg,#fff, var(--gold1));filter:blur(.6px);opacity:.18}
+
+    /* ===== SECTIONS ===== */
+    main{padding-top:92px}
+    section{max-width:var(--maxw);margin:48px auto;padding:44px 28px;border-radius:14px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:20px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 10px 30px rgba(2,2,2,0.5)}
+
+    /* services grid */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .service{padding:22px;border-radius:12px;background:var(--glass);border-left:4px solid var(--gold1);display:flex;gap:14px;align-items:flex-start}
+    .service i{font-size:20px;color:var(--gold1);margin-top:6px}
+    .service h3{margin:0;color:#fff;font-size:18px}
+    .service p{color:var(--muted);margin:6px 0 0}
+
+    /* cars carousel */
+    .cars{overflow:hidden}
+    .cars-row{display:flex;gap:18px;padding:16px 6px;overflow-x:auto;scroll-snap-type:x mandatory}
+    .car{min-width:320px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:14px;scroll-snap-align:start;border:1px solid rgba(255,255,255,0.04);transition:transform .36s ease, box-shadow .36s ease}
+    .car:hover{transform:translateY(-10px);box-shadow:0 20px 50px rgba(2,2,2,0.6)}
+    .car img{width:100%;height:180px;object-fit:cover;border-radius:10px;display:block}
+    .car h4{margin:10px 0 6px;color:#fff}
+    .meta{display:flex;gap:10px;align-items:center;color:var(--muted);font-weight:600}
+    .price{color:var(--gold1);font-weight:800;margin-top:10px}
+    .book{margin-top:12px;display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--gold1),var(--gold2));color:#0b0b0b;font-weight:700;text-decoration:none}
+
+    /* why-us list */
+    .why{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center}
+    .why ul{list-style:none;padding:0;margin:0;color:var(--muted)}
+    .why li{padding:8px 0;border-bottom:1px dashed rgba(255,255,255,0.03)}
+
+    /* reviews */
+    .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .review{padding:20px;border-radius:12px;background:#fff;color:#111}
+
+    /* footer */
+    footer{padding:48px 28px;text-align:center;color:var(--muted)}
+
+    /* responsive */
+    @media (max-width:1000px){.stage{grid-template-columns:1fr;gap:22px;padding-top:90px}.grid{grid-template-columns:1fr}.why{grid-template-columns:1fr}.reviews{grid-template-columns:1fr}.cars-row{padding:8px}}
+    @media (max-width:600px){h1{font-size:30px}.hero{height:78vh}.visual{height:260px}.nav-hidden{display:none}}
+
+    /* tiny animation helpers */
+    .reveal{opacity:0;transform:translateY(14px);transition:all .6s cubic-bezier(.2,.9,.3,1)}
+    .reveal.show{opacity:1;transform:none}
+    .preloader {position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: var(--dark);display: flex;justify-content: center;align-items: center;z-index: 9999;transition: opacity 0.5s ease;}
+    .preloader.fade-out {opacity: 0;}
+    .loader {
+      width: 80px;
+      height: 80px;
+      border: 5px solid rgba(212, 175, 55, 0.3);
+      border-radius: 50%;
+      border-top-color: var(--gold);
+      animation: spin 1s ease-in-out infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  
+    /* Infinite scrolling cars */
+    .cars-row {
+      display: flex;
+      gap: 18px;
+      padding: 16px 6px;
+      animation: scrollCars 30s linear infinite;
+      width: max-content;
+    }
+    @keyframes scrollCars {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Duplicate cars for seamless scroll */
+    .cars-row::after {
+      content: attr(data-clone);
+      display: flex;
+    }
+    .cars-row:hover {
+      animation-play-state: paused;
+    }
+
+    /* Back to top button */
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: linear-gradient(90deg,var(--gold1),var(--gold2));
+      color: #111;
+      border: none;
+      padding: 12px 16px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      display: none;
+      z-index: 999;
+    }
+
+    /* Cool Loader */
+    .preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--bg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .loader {
+      border: 6px solid rgba(212, 175, 55, 0.3);
+      border-top: 6px solid var(--gold1);
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    </style>
+</head>
+<body><div class="preloader"><div class="loader"></div></div>
+<header>
+<div class="brand"><img alt="logo" src="autologo.jpg"/><div>LuxCar</div></div>
+<nav>
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#cars">Fleet</a>
+<a href="#why">Why Us</a>
+<a class="cta-small" href="#contact">Book Now</a>
+</nav>
+</header>
+<main>
+<!-- HERO -->
+<section aria-label="Hero" class="hero">
+<div class="stage">
+<div class="intro">
+<div class="eyebrow">Premium • Chauffeur • Airport Transfers</div>
+<h1>Ride the moment , arrive in style</h1>
+<p class="lead">A curated fleet of exotic and luxury vehicles, white-glove service and local expertise. Book quickly, drive beautifully.</p>
+<div class="hero-cta">
+<button class="btn primary" onclick="document.getElementById('cars').scrollIntoView({behavior:'smooth'})">Explore Fleet</button>
+<button class="btn ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Concierge</button>
+</div>
+<div style="margin-top:22px;display:flex;gap:12px;align-items:center">
+<div class="card" style="display:flex;gap:12px;align-items:center;padding:10px 12px;border-radius:999px;max-width:380px;background-color: rgb(44, 179, 44);">
+<i class="fa-brands fa-whatsapp"></i>
+<div style="font-weight:700">Book quickly on WhatsApp</div>
+</div>
+<div style="color:var(--muted);font-weight:600">or call +212 612-345678</div>
+</div>
+</div>
+<div class="visual" id="visual">
+<img alt="fleet" id="heroImg" src="https://images.unsplash.com/photo-1593631698392-a0ce40ca5662?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
+<div class="overlay" style="position:absolute;right:12px;bottom:12px">
+<div style="color:var(--gold1);font-weight:800">Featured</div>
+<div class="specs" style="margin-top:8px">
+<div class="spec"><span>kia</span><strong>From 400dh/day</strong></div>
+<div class="spec"><span>Sanya</span><strong>From 150dh/day</strong></div>
+</div>
+</div>
+<div class="sparkle" style="top:18%;left:10%"></div>
+<div class="sparkle" style="top:38%;left:72%;width:10px;height:10px;opacity:.14"></div>
+<div class="sparkle" style="top:70%;left:54%"></div>
+</div>
+</div>
+</section>
+<!-- ABOUT -->
+<section class="card reveal" id="about">
+<h2 style="margin-top:0">About LuxCar</h2>
+<p style="color:var(--muted);line-height:1.7">We combine handpicked vehicles with concierge-level service to give you an effortless, luxurious experience across Tangier and beyond. Safety, pristine condition and punctuality are guaranteed for every booking.</p>
+</section>
+<!-- SERVICES -->
+<section class="card reveal" id="services">
+<h2 style="margin-top:0">Our Services</h2>
+<div class="grid" style="margin-top:18px">
+<div class="service"><i class="fas fa-calendar-alt"></i><div><h3>Flexible Rentals</h3><p>Daily, weekly and long-term packages.</p></div></div>
+<div class="service"><i class="fas fa-user-tie"></i><div><h3>Chauffeur Service</h3><p>Professional, vetted drivers for events &amp; transfers.</p></div></div>
+<div class="service"><i class="fas fa-plane"></i><div><h3>Airport Transfers</h3><p>Flight tracking &amp; meet-and-greet.</p></div></div>
+</div>
+</section>
+<!-- CARS -->
+<section class="card reveal" id="cars">
+<h2 style="margin-top:0">Available Cars</h2>
+<div class="cars">
+<div class="cars-row" id="carsRow">
+<!-- keep image filenames as in your original project -->
+<article class="car"><img alt="Lamborghini" src="https://images.unsplash.com/photo-1623826631942-5d55cf980120?q=80&amp;w=687&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/><h4>Clio 4</h4><div class="meta"><span>640HP</span><span>4 seats</span></div><div class="price">From 200dh/day</div><a class="book" href="#contact">Book Now</a></article>
+<article class="car"><img alt="Rolls" src="https://images.unsplash.com/photo-1697461132197-64aba5a4d48b?q=80&amp;w=1170&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/><h4>Dacia Sandero</h4><div class="meta"><span>563HP</span><span>4 seats</span></div><div class="price">From 250dh/day</div><a class="book" href="#contact">Book Now</a></article>
+<article class="car"><img alt="Bentley" src="https://images.unsplash.com/photo-1604395924490-a3a18bb7193e?q=80&amp;w=1302&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/><h4>Dacia Duster</h4><div class="meta"><span>650HP</span><span>4 seats</span></div><div class="price">From 350dh/day</div><a class="book" href="#contact">Book Now</a></article>
+<article class="car"><img alt="Ferrari" src="https://images.unsplash.com/photo-1597497287565-a38cfaa4e762?q=80&amp;w=686&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/><h4>TMAX</h4><div class="meta"><span>710HP</span><span>2 seats</span></div><div class="price">From 150dh/day</div><a class="book" href="#contact">Book Now</a></article>
+<article class="car"><img alt="Porsche" src="https://images.unsplash.com/photo-1656518800108-33fb1acc7924?q=80&amp;w=687&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/><h4>peugeot 308</h4><div class="meta"><span>640HP</span><span>4 seats</span></div><div class="price">From 350dh/day</div><a class="book" href="#contact">Book Now</a></article>
+<article class="car"><img alt="Lamborghini" src="https://images.unsplash.com/photo-1623826631942-5d55cf980120?q=80&amp;w=687&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/><h4>Clio 4</h4><div class="meta"><span>640HP</span><span>4 seats</span></div><div class="price">From 200dh/day</div><a class="book" href="#contact">Book Now</a></article>
+<article class="car"><img alt="Rolls" src="https://images.unsplash.com/photo-1697461132197-64aba5a4d48b?q=80&amp;w=1170&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/><h4>Dacia Sandero</h4><div class="meta"><span>563HP</span><span>4 seats</span></div><div class="price">From 250dh/day</div><a class="book" href="#contact">Book Now</a></article>
+<article class="car"><img alt="Bentley" src="https://images.unsplash.com/photo-1604395924490-a3a18bb7193e?q=80&amp;w=1302&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/><h4>Dacia Duster</h4><div class="meta"><span>650HP</span><span>4 seats</span></div><div class="price">From 350dh/day</div><a class="book" href="#contact">Book Now</a></article>
+<article class="car"><img alt="Ferrari" src="https://images.unsplash.com/photo-1597497287565-a38cfaa4e762?q=80&amp;w=686&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/><h4>TMAX</h4><div class="meta"><span>710HP</span><span>2 seats</span></div><div class="price">From 350dh/day</div><a class="book" href="#contact">Book Now</a></article>
+<article class="car"><img alt="Porsche" src="https://images.unsplash.com/photo-1656518800108-33fb1acc7924?q=80&amp;w=687&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/><h4>peugeot 308</h4><div class="meta"><span>640HP</span><span>4 seats</span></div><div class="price">From 350dh/day</div><a class="book" href="#contact">Book Now</a></article>
+</div>
+</div>
+</section>
+<!-- WHY US -->
+<section class="card reveal" id="why">
+<h2 style="margin-top:0">Why Choose LuxCar?</h2>
+<div class="why" style="margin-top:18px">
+<div>
+<p style="color:var(--muted)">We focus on three things: condition of cars, reliability of service and personalized attention. Enjoy:</p>
+<ul>
+<li>No hidden fees</li>
+<li>24/7 support</li>
+<li>Complimentary detailing</li>
+<li>VIP upgrades</li>
+</ul>
+</div>
+<div style="display:flex;align-items:center;justify-content:center">
+<img alt="showcase" src="autologo.jpg" style="max-width:320px;border-radius:12px;box-shadow:0 18px 40px rgba(2,2,2,0.6)"/>
+</div>
+</div>
+</section>
+<!-- REVIEWS -->
+<section class="card reveal" id="reviews">
+<h2 style="margin-top:0">Client Reviews</h2>
+<div class="reviews" style="margin-top:18px">
+<div class="review"><strong>Sophie Martin</strong><div style="color:var(--muted);margin:8px 0">"Expérience exceptionnelle avec LuxCar !"</div></div>
+<div class="review"><strong>Jean Dubois</strong><div style="color:var(--muted);margin:8px 0">"La Rolls Royce Phantom a impressionné tous nos invités."</div></div>
+<div class="review"><strong>Amélie Leroy</strong><div style="color:var(--muted);margin:8px 0">"Voiture sublime et service client disponible 24/7."</div></div>
+</div>
+</section>
+<!-- CONTACT -->
+<section class="card reveal" id="contact">
+<h2 style="margin-top:0">Contact &amp; Booking</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:18px">
+<div style="padding:16px;border-radius:10px;background:rgba(255,255,255,0.02)"><i class="fas fa-envelope"></i><h4>Email</h4><a href="mailto:support@luxcar.com" style="color:var(--muted);text-decoration:none">support@luxcar.com</a></div>
+<div style="padding:16px;border-radius:10px;background:rgba(255,255,255,0.02)"><i class="fas fa-phone-alt"></i><h4>Phone</h4><a href="tel:+212612345678" style="color:var(--muted);text-decoration:none">+212 612-345678</a></div>
+<div style="padding:16px;border-radius:10px;background:rgba(255,255,255,0.02)"><i class="fas fa-map-marker-alt"></i><h4>Location</h4><p style="color:var(--muted);margin:0">123 Luxury Avenue, Tangier</p></div>
+</div>
+<div style="margin-top:14px"><a class="btn primary" href="https://wa.me/212612345678" rel="noopener" target="_blank">Book on WhatsApp</a></div>
+</section>
+<section class="card reveal" id="contact">
+<h2 style="margin-top:0">Our Location</h2>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12949.290450307992!2d-5.846654315764393!3d35.76745084343522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0b8127839c4b49%3A0x3d2289ae0221d722!2sLocation!5e0!3m2!1sen!2sma!4v1754788932655!5m2!1sen!2sma" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</section>
+</main>
+<footer style="background: #0b0b0c; padding: 40px 28px 0; color: var(--muted); border-top: 2px solid var(--gold1);">
+  <div style="max-width: var(--maxw); margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px;">
+
+    <!-- About -->
+    <div>
+      <h3 style="color: var(--gold1); margin-bottom: 12px;">LuxCar</h3>
+      <p style="line-height: 1.6; font-size: 14px;">
+        Premium luxury car rentals in Tangier with world-class service. Drive the best, arrive in style.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div>
+      <h4 style="color: var(--gold1); margin-bottom: 12px;">Quick Links</h4>
+      <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px;">
+        <li><a href="#about" style="color: var(--muted); text-decoration: none;">About</a></li>
+        <li><a href="#services" style="color: var(--muted); text-decoration: none;">Services</a></li>
+        <li><a href="#cars" style="color: var(--muted); text-decoration: none;">Fleet</a></li>
+        <li><a href="#why" style="color: var(--muted); text-decoration: none;">Why Us</a></li>
+        <li><a href="#contact" style="color: var(--muted); text-decoration: none;">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact & Socials -->
+    <div>
+      <h4 style="color: var(--gold1); margin-bottom: 12px;">Contact</h4>
+      <p style="margin: 4px 0; font-size: 14px;"><i class="fas fa-phone"></i> +212 612-345678</p>
+      <p style="margin: 4px 0; font-size: 14px;"><i class="fas fa-envelope"></i> support@luxcar.com</p>
+      <div style="margin-top: 10px; display: flex; gap: 10px; font-size: 18px; margin-left: 145px;">
+        <a href="#" style="color: var(--muted);"><i class="fab fa-facebook"></i></a>
+        <a href="#" style="color: var(--muted);"><i class="fab fa-instagram"></i></a>
+        <a href="#" style="color: var(--muted);"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom bar -->
+  <div style="border-top: 1px solid rgba(255,255,255,0.05); margin-top: 25px; padding: 15px 0; text-align: center; font-size: 13px; color: var(--muted);">
+    © 2025 LuxCar. All rights reserved.
+  </div>
+</footer>
+
+<script>
+    // Preloader
+    window.addEventListener('load', function() {
+      const preloader = document.querySelector('.preloader');
+      setTimeout(() => {
+        preloader.classList.add('fade-out');
+        setTimeout(() => {
+          preloader.style.display = 'none';
+        }, 500);
+      }, 1500);
+    });
+    // subtle visual interactions + reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const showOnScroll = () => {
+      const trigger = window.innerHeight * 0.85;
+      reveals.forEach(r => {
+        const rect = r.getBoundingClientRect();
+        if(rect.top < trigger) r.classList.add('show');
+      });
+    }
+    window.addEventListener('scroll', showOnScroll);
+    window.addEventListener('load', ()=>{showOnScroll();
+      // tiny hero image parallax on mouse move
+      const heroImg = document.getElementById('heroImg');
+      const visual = document.getElementById('visual');
+      visual.addEventListener('mousemove', (e)=>{
+        const rect = visual.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        heroImg.style.transform = `translate(${x*12}px, ${y*12}px) scale(1.04)`;
+      });
+      visual.addEventListener('mouseleave', ()=>{heroImg.style.transform = 'translate(0,0) scale(1.06)'});
+
+      // click-to-scroll for nav links
+      document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click', e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href')); if(t) t.scrollIntoView({behavior:'smooth',block:'start'})}));
+
+      // small horizontal drag for cars row
+      const carsRow = document.getElementById('carsRow');
+      let isDown=false,startX,scrollLeft;
+      carsRow.addEventListener('mousedown', e=>{isDown=true;carsRow.classList.add('active');startX=e.pageX - carsRow.offsetLeft;scrollLeft=carsRow.scrollLeft});
+      carsRow.addEventListener('mouseleave', ()=>{isDown=false;carsRow.classList.remove('active')});
+      carsRow.addEventListener('mouseup', ()=>{isDown=false;carsRow.classList.remove('active')});
+      carsRow.addEventListener('mousemove', e=>{if(!isDown) return; e.preventDefault(); const x=e.pageX - carsRow.offsetLeft; const walk=(x-startX)*1.5; carsRow.scrollLeft = scrollLeft - walk});
+    });
+// Disable drag scroll for cars
+const carsRow = document.getElementById('carsRow');
+carsRow.style.overflow = 'hidden';
+</script>
+<!-- Chatbot Styles -->
+<style>
+  .chatbot-toggle {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background: linear-gradient(90deg,var(--gold1),var(--gold2));
+    color: #111;
+    border: none;
+    width: 67px;
+    height: 67px;
+    border-radius: 50%;
+    font-size: 26px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 9999;
+    transition: all 0.3s ease;
+    
+    /* pulse animation */
+    transform-origin: center;
+    animation: chatbotPulse 1.6s ease-in-out infinite;
+    will-change: transform, box-shadow;
+  }
+
+  @keyframes chatbotPulse {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    50% {
+      transform: scale(1.15);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+  }
+
+  .chatbot-container {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 0;
+    height: 0;
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    z-index: 9998;
+    transition: all 0.4s ease;
+  }
+  .chatbot-container.open {
+    width: 350px;
+    height: 500px;
+  }
+</style>
+
+<!-- Chatbot HTML -->
+<div class="chatbot-container" id="chatbotContainer">
+  <!-- Chatbase Script -->
+  <script>
+    (function(){
+      if(!window.chatbase || window.chatbase("getState")!=="initialized"){
+        window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};
+        window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}});
+      }
+      const onLoad=function(){
+        const script=document.createElement("script");
+        script.src="https://www.chatbase.co/embed.min.js";script.id="_oIyAcxmyk0-6sA_lHtl1";script.domain="www.chatbase.co";
+        document.getElementById("chatbotContainer").appendChild(script);
+      };
+      if(document.readyState==="complete"){onLoad();}
+      else{window.addEventListener("load",onLoad);}
+    })();
+  </script>
+</div>
+
+<button class="chatbot-toggle" id="chatbotToggle">
+  
+</button>
+
+<!-- Chatbot Toggle Script -->
+<script>
+  const chatbotToggle = document.getElementById('chatbotToggle');
+  const chatbotContainer = document.getElementById('chatbotContainer');
+  chatbotToggle.addEventListener('click', () => {
+    chatbotContainer.classList.toggle('open');
+  });
+</script>
+</body>
+</html>

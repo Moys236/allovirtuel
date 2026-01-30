@@ -1,0 +1,311 @@
+{
+    "settings": {
+        "companyName": "AlloVirtuel",
+        "logo": "images/allovirtuel_logo.jpg",
+        "theme": {
+            "primaryColor": "#3b82f6",
+            "secondaryColor": "#8b5cf6",
+            "backgroundColor": "#0a0a0a",
+            "textColor": "#f8fafc",
+            "accentColor": "#25D366"
+        },
+        "contact": {
+            "whatsapp": "212625929616",
+            "email": "allovirtuel@gmail.com",
+            "linkedin": "linkedin.com\/in\/devportfolio",
+            "github": "github.com\/devportfolio",
+            "instagram": "instagram.com\/allovirtuel.ma"
+        }
+    },
+    "navigation": [
+        {
+            "label": "À propos",
+            "href": "#about"
+        },
+        {
+            "label": "Services",
+            "href": "#services"
+        },
+        {
+            "label": "Projets",
+            "href": "#projects"
+        },{
+            "label": "Contact",
+            "href": "#contact"
+        }
+    ],
+    "hero": {
+        "title": "Bienvenue chez AlloVirtuel",
+        "subtitle": "Développeurs Full-Stack & Résolveurs créatifs de problèmes",
+        "description": "Nous créons des solutions numériques intelligentes et abordables pour les petites entreprises et les commerces locaux. Des sites web soignés aux chatbots personnalisés, nous vous aidons à vous connecter, engager et croître — rapidement.",
+        "cta": {
+            "text": "Commencez votre projet avec nous",
+            "href": "#services"
+        },
+        "image": {
+            "alt": "Avatar développeur",
+            "src": "images/allovirtuel_logo.jpg"
+        }
+    },
+    "about": {
+        "title": "À propos",
+        "content": [
+            "AlloVirtuel est une petite agence de développement web basée à Tanger. Nous sommes une équipe de trois développeurs passionnés, débutants mais pleinement engagés à aider les entreprises locales à prospérer en ligne.",
+            "Nous sommes spécialisés dans le développement de sites web et la création de chatbots personnalisés, toujours axés sur une livraison rapide, un service personnalisé et le meilleur prix possible.",
+            "Notre mission est simple : instaurer la confiance avec chaque client et accompagner la transformation numérique du Maroc — un projet à la fois."
+        ],
+        "image": "images/pexels-coding.jpg"
+    },
+    "whyAllovirtuel": {
+        "title": "Pourquoi choisir AlloVirtuel ?",
+        "subtitle": "",
+        "content": [
+            "Chez AlloVirtuel, nous créons bien plus que de simples sites web. Nos sites sont modernes, responsives, rapides et pensés pour offrir à vos visiteurs une expérience fluide et engageante, quel que soit l’appareil utilisé. Chaque design est personnalisé pour refléter parfaitement votre identité visuelle, renforcer votre crédibilité et capter l’attention de vos clients.",
+            "Mais ce qui nous distingue vraiment, c’est l’intégration d’un chatbot IA intelligent, directement intégré à votre site, qui répond instantanément aux questions de vos clients, améliore leur satisfaction et vous fait gagner du temps.",
+            "Cette combinaison unique de qualité web et d’intelligence artificielle place votre entreprise en tête de la compétition, tout en restant accessible financièrement.",
+            "Avec AlloVirtuel, vous investissez dans l’avenir digital de votre business, pas seulement dans un simple site."
+        ]
+    },
+    "services": {
+        "title": "Nos Packs",
+        "subtitle": "Des solutions adaptées à tous vos besoins numériques",
+        "packages": [
+            {
+                "id": "package-3",
+                "title": "Démarrage Intelligent IA",
+                "icon": "🤖",
+                "description": "Parfait pour les startups et petites entreprises prêtes à automatiser rapidement.",
+                "features": [
+                    "Chatbot IA personnalisé adapté aux besoins de votre entreprise",
+                    "Intégration du chatbot sur votre site existant ou vos réseaux sociaux",
+                    "Formation de base du chatbot pour les FAQ et interactions clients",
+                    "Mise en place rapide : votre assistant IA en ligne en quelques jours",
+                    "Abordable, pas besoin de site web — juste l’automatisation IA pour booster votre support client"
+                ],
+                "popular": false,
+                "cta": {
+                    "text": "Obtenir un devis sur WhatsApp",
+                    "href": "https:\/\/wa.me\/212625929616?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20le%20Pack%20Chatbot%20Business.%20Pouvez-vous%20m'envoyer%20un%20devis%20et%20m'expliquer%20comment%20d%C3%A9marrer%20le%20projet%20avec%20AlloVirtuel%20%3F"
+                }
+            },
+            {
+                "id": "package-4",
+                "title": "Intermédiaire : Site Web uniquement",
+                "icon": "🌐",
+                "description": "Pour les entreprises souhaitant une présence en ligne professionnelle et élégante.",
+                "features": [
+                    "Site web statique entièrement responsive avec UX/UI moderne",
+                    "Jusqu'à 5 pages (Accueil, À propos, Services, Contact, FAQ)",
+                    "Optimisé mobile, base prête pour le SEO",
+                    "Guide pour mise à jour facile du contenu",
+                    "Livraison rapide (1-2 semaines) avec un design propre et élégant",
+                    "Parfait pour les entreprises souhaitant établir ou rafraîchir leur présence digitale"
+                ],
+                "popular": false,
+                "cta": {
+                    "text": "Discutons sur WhatsApp",
+                    "href": "https:\/\/wa.me\/212625929616?text=Bonjour%2C%20je%20souhaite%20obtenir%20plus%20d'informations%20sur%20le%20Pack%20Pro%20Website%20Showcase%20et%20recevoir%20un%20devis.%20Merci%20!"
+                }
+            },
+            {
+                "id": "package-5",
+                "title": "Pro+ : Site Web + Chatbot IA",
+                "icon": "⚡",
+                "description": "Le pack ultime pour un impact numérique maximal.",
+                "features": [
+                    "Site web statique personnalisé (jusqu'à 7 pages) avec design premium et animations",
+                    "Chatbot IA intégré pour gérer les questions clients et automatiser le support",
+                    "Formation personnalisée du chatbot et support continu",
+                    "Options de maintenance du site disponibles",
+                    "Compatibilité mobile totale et optimisation de la vitesse",
+                    "Meilleur choix pour les entreprises prêtes à développer leur présence web et leur automatisation"
+                ],
+                "popular": true,
+                "cta": {
+                    "text": "Obtenir un devis sur WhatsApp",
+                    "href": "https:\/\/wa.me\/212625929616?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20le%20Pack%20Digital%20Complet%20(website%20+%20chatbot).%20Merci%20de%20me%20partager%20les%20d%C3%A9tails%20et%20le%20devis%20!"
+                }
+            }
+        ]
+    },
+    "process": {
+        "title": "Comment nous créons votre site web",
+        "subtitle": "Un processus transparent en 4 étapes simples",
+        "steps": [
+            {
+                "number": 1,
+                "title": "Découverte",
+                "description": "Analyse de vos besoins et objectifs.",
+                "icon": "fas fa-bullseye"
+            },
+            {
+                "number": 2,
+                "title": "Conception & Développement",
+                "description": "Création de maquette et transformation en site fonctionnel.",
+                "icon": "fas fa-pencil-ruler"
+            },
+            {
+                "number": 3,
+                "title": "Tests & Validation",
+                "description": "Revue complète et validation par le client.",
+                "icon": "fas fa-clipboard-check"
+            },
+            {
+                "number": 4,
+                "title": "Lancement & Support",
+                "description": "Mise en ligne, formation et maintenance.",
+                "icon": "fas fa-rocket"
+            }
+        ]
+    },
+    "projects": {
+        "title": "Nos Projets",
+        "items": [
+            {
+                "title": "LuxCar",
+                "description": "Prototype de site vitrine pour une agence de location de voitures.",
+                "icon": "🚗",
+                "image": "images/luxCarScreenS.png",
+                "links": [
+                    {
+                        "text": "Démo",
+                        "href": "prototypes/Car.html"
+                    }
+                ]
+            },
+            {
+                "title": "alloFood",
+                "description": "Prototype de site vitrine pour un restaurant.",
+                "icon": "🍽️",
+                "image": "images/alloFood_ScreenS.png",
+                "links": [
+                    {
+                        "text": "Démo",
+                        "href": "prototypes/Restaurant.html"
+                    }
+                ]
+            },
+            {
+                "title": "Élégance Traiteur",
+                "description": "Prototype de site vitrine pour un traiteur.",
+                "icon": "🧑‍🍳",
+                "image": "images/eleganceTraiteurScreenS.png",
+                "links": [
+                    {
+                        "text": "Démo",
+                        "href": "prototypes/traiteur.html"
+                    }
+                ]
+            },
+            {
+                "title": "Luxurious Spa",
+                "description": "Prototype de site vitrine pour un spa.",
+                "icon": "🧑",
+                "image": "images/spa.png",
+                "links": [
+                    {
+                        "text": "Démo",
+                        "href": "prototypes/spa.html"
+                    }
+                ]
+            },
+            {
+                "title": "Luxe Patisserie",
+                "description": "Prototype de site vitrine pour une pâtisserie.",
+                "icon": "🍰",
+                "image": "images/patis.png",
+                "links": [
+                    {
+                        "text": "Démo",
+                        "href": "prototypes/patt.html"
+                    }
+                ]
+            },
+            {
+                "title": "LuxEstate",
+                "description": "Prototype de site vitrine pour une agence immobilière.",
+                "icon": "🏠",
+                "image": "images/luxEstateScreenS.png",
+                "links": [
+                    {
+                        "text": "Démo",
+                        "href": "prototypes/Real_estate.html"
+                    }
+                ]
+            }
+        ]
+    },
+    "faq": {
+        "title": "FAQ",
+        "items": [
+            {
+                "question": "Quels types de sites web créez-vous ?",
+                "answer": "Nous sommes spécialisés dans les sites statiques modernes, propres et responsives, adaptés aux petites entreprises, startups et entrepreneurs."
+            },
+            {
+                "question": "Proposez-vous des services d’intégration de chatbot ?",
+                "answer": "Absolument ! Nous créons et intégrons des chatbots intelligents qui améliorent l’interaction client et automatisent le support pour votre site ou votre entreprise."
+            },
+            {
+                "question": "Puis-je mettre à jour moi-même le contenu de mon site plus tard ?",
+                "answer": "Oui, nous pouvons fournir des solutions simples de gestion de contenu ou des tutoriels pour que vous puissiez mettre à jour votre site facilement sans aide technique."
+            },
+            {
+                "question": "Vos sites sont-ils adaptés aux mobiles ?",
+                "answer": "Bien sûr. Tous nos sites sont entièrement responsives et optimisés pour les appareils mobiles afin d’assurer une expérience utilisateur fluide."
+            },
+            {
+                "question": "Quelles informations avez-vous besoin pour commencer ?",
+                "answer": "Nous aurons besoin des détails de votre entreprise, vos objectifs, vos éléments de marque (logos, couleurs) et toute préférence de contenu ou de design."
+            }
+        ]
+    },
+    "contact": {
+        "title": "Contact",
+        "channels": {
+            "subtitle": "Restons en contact",
+            "items": [
+                {
+                    "type": "email",
+                    "icon": "@",
+                    "iconWithClass": false,
+                    "label": "E-mail",
+                    "value": "allovirtuel@gmail.com",
+                    "href": "mailto:allovirtuel@gmail.com"
+                },
+                {
+                    "type": "linkedin",
+                    "icon": "fab fa-linkedin",
+                    "iconWithClass": true,
+                    "label": "LinkedIn",
+                    "value": "\/in\/devportfolio",
+                    "href": "https:\/\/linkedin.com\/in\/devportfolio"
+                },
+                {
+                    "type": "github",
+                    "icon": "fab fa-github",
+                    "iconWithClass": true,
+                    "label": "GitHub",
+                    "value": "\/devportfolio",
+                    "href": "https:\/\/github.com\/devportfolio"
+                },
+                {
+                    "type": "whatsapp",
+                    "icon": "fab fa-whatsapp",
+                    "iconWithClass": true,
+                    "label": "WhatsApp",
+                    "value": "+212 625-929616",
+                    "href": "https:\/\/wa.me\/212625929616?text=Bonjour"
+                },
+                {
+                    "type": "instagram",
+                    "icon": "fab fa-instagram",
+                    "iconWithClass": true,
+                    "label": "Instagram",
+                    "value": "allovirtuel.ma",
+                    "href": "https:\/\/www.instagram.com\/allovirtuel.ma\/?utm_source=ig_web_button_share_sheet"
+                }
+            ]
+        }
+    }
+}

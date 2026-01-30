@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Élégance Traiteur | Catering Haut de Gamme</title>
+    <meta name="description" content="Service de traiteur haut de gamme pour mariages, événements d'entreprise et réceptions privées. Cuisine raffinée et service impeccable.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --dark-gold: #b59530;
+            --dark-gray: #333333;
+            --light-gray: #f5f5f5;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-gray);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Lora', serif;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            background-attachment: fixed;
+        }
+        
+        .gold-text {
+            color: var(--gold);
+        }
+        
+        .gold-border {
+            border-color: var(--gold);
+        }
+        
+        .gold-bg {
+            background-color: var(--gold);
+        }
+        
+        .gold-hover:hover {
+            color: var(--gold);
+        }
+        
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .dish-card {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .dish-card:hover {
+            transform: scale(1.03);
+        }
+        
+        .dish-card:hover .dish-image {
+            transform: scale(1.1);
+        }
+        
+        .dish-image {
+            transition: transform 0.5s ease;
+        }
+        
+        .dish-overlay {
+            background: linear-gradient(to top, rgba(212, 175, 55, 0.9), transparent);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .dish-card:hover .dish-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--gold);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            max-height: 0;
+            overflow: hidden;
+        }
+        
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+        
+        .btn-gold {
+            background: var(--gold);
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(212, 175, 55, 0.3);
+        }
+        
+        .btn-gold:hover {
+            background: var(--dark-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(212, 175, 55, 0.4);
+        }
+        
+        .btn-outline-gold {
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-gold:hover {
+            background: var(--gold);
+            color: white;
+        }
+        
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        .slide-in-left {
+            animation: slideInLeft 1s ease forwards;
+        }
+        
+        .slide-in-right {
+            animation: slideInRight 1s ease forwards;
+        }
+        
+        .delay-100 {
+            animation-delay: 100ms;
+        }
+        
+        .delay-200 {
+            animation-delay: 200ms;
+        }
+        
+        .delay-300 {
+            animation-delay: 300ms;
+        }
+        
+        .delay-400 {
+            animation-delay: 400ms;
+        }
+        
+        .delay-500 {
+            animation-delay: 500ms;
+        }
+        
+        .scroll-indicator {
+            width: 30px;
+            height: 50px;
+            border: 2px solid white;
+            border-radius: 15px;
+            position: relative;
+        }
+        
+        .scroll-indicator::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            animation: scrollAnimation 2s infinite;
+        }
+        
+        @keyframes scrollAnimation {
+            0% { opacity: 1; top: 8px; }
+            100% { opacity: 0; top: 24px; }
+        }
+        
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .bg-pattern {
+            background-image: radial-gradient(rgba(212, 175, 55, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, #D4AF37, #F5D76E);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .flip-card {
+            perspective: 1000px;
+        }
+        
+        .flip-card-inner {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .flip-card-front, .flip-card-back {
+            backface-visibility: hidden;
+        }
+        
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        #menu{
+            margin-top: 600px;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center hover-scale">
+                    <span class="text-2xl font-bold gold-text">Élégance</span>
+                    <span class="text-2xl font-bold">Traiteur</span>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="nav-link px-3 py-2 text-sm font-medium hover:text-gray-900 transition duration-300">Accueil</a>
+                        <a href="#about" class="nav-link px-3 py-2 text-sm font-medium hover:text-gray-900 transition duration-300">À Propos</a>
+                        <a href="#services" class="nav-link px-3 py-2 text-sm font-medium hover:text-gray-900 transition duration-300">Services</a>
+                        <a href="#menu" class="nav-link px-3 py-2 text-sm font-medium hover:text-gray-900 transition duration-300">Menu</a>
+                        <a href="#testimonials" class="nav-link px-3 py-2 text-sm font-medium hover:text-gray-900 transition duration-300">Témoignages</a>
+                        <a href="#contact" class="nav-link px-3 py-2 text-sm font-medium hover:text-gray-900 transition duration-300">Contact</a>
+                    </div>
+                </div>
+                
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-700 hover:text-gray-900 focus:outline-none transition duration-300 transform hover:scale-110">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 transition duration-300">Accueil</a>
+                <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 transition duration-300">À Propos</a>
+                <a href="#services" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 transition duration-300">Services</a>
+                <a href="#menu" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 transition duration-300">Menu</a>
+                <a href="#testimonials" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 transition duration-300">Témoignages</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 transition duration-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero flex items-center justify-center text-white relative pt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 text-shadow slide-in-left">L'Art Culinaire Réinventé</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-shadow slide-in-right delay-200">Des créations gastronomiques exceptionnelles pour vos événements les plus prestigieux.</p>
+            <div class="slide-in-right delay-400">
+                <a href="#contact" class="inline-block btn-gold border-2 border-transparent hover:border-white text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                    Contactez-nous
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-0 right-0 text-center fade-in delay-500">
+            <div class="scroll-indicator mx-auto"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+                <div class="mb-12 lg:mb-0 slide-in-left">
+                    <h2 class="text-3xl font-bold mb-6 gradient-text">À Propos De Nous</h2>
+                    <p class="text-lg mb-6">Fondé en 2010, Élégance Traiteur incarne l'excellence culinaire française avec une touche contemporaine. Notre équipe de chefs passionnés crée des expériences gastronomiques mémorables pour vos événements les plus importants.</p>
+                    <p class="text-lg mb-6">Nous sélectionnons rigoureusement des ingrédients locaux et de saison, travaillant en étroite collaboration avec les meilleurs producteurs de la région pour garantir fraîcheur et qualité exceptionnelle.</p>
+                    <p class="text-lg mb-8">Notre engagement va au-delà de la cuisine - un service impeccable, une présentation artistique et une attention méticuleuse aux détails font de chaque événement une expérience unique.</p>
+                    <div class="flex space-x-4">
+                        <div class="text-center p-4 border border-gray-200 rounded-lg hover-scale">
+                            <p class="text-3xl font-bold gold-text">15+</p>
+                            <p class="text-sm">Années d'expérience</p>
+                        </div>
+                        <div class="text-center p-4 border border-gray-200 rounded-lg hover-scale">
+                            <p class="text-3xl font-bold gold-text">500+</p>
+                            <p class="text-sm">Événements réussis</p>
+                        </div>
+                        <div class="text-center p-4 border border-gray-200 rounded-lg hover-scale">
+                            <p class="text-3xl font-bold gold-text">100%</p>
+                            <p class="text-sm">Clients satisfaits</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative slide-in-right">
+                    <div class="floating">
+                        <img src="https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Chef préparant un plat" class="rounded-lg shadow-xl w-full transform rotate-1 hover:rotate-0 transition duration-500">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 bg-gray-900 text-white p-6 rounded-lg shadow-lg hidden md:block transform rotate-3 hover:rotate-0 transition duration-500">
+                        <p class="text-xl font-bold gold-text">⭐ 5.0</p>
+                        <p class="text-sm">Note moyenne</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50 bg-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-bold mb-4 gradient-text">Nos Services</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Nous offrons une gamme complète de services de traiteur adaptés à chaque occasion spéciale.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="flip-card fade-in delay-100">
+                    <div class="flip-card-inner h-full">
+                        <div class="flip-card-front service-card bg-white p-8 rounded-lg shadow-md h-full">
+                            <div class="text-4xl gold-text mb-6">
+                                <i class="fas fa-ring"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4">Mariages</h3>
+                            <p class="text-gray-600">Un menu sur mesure pour votre grand jour, avec une équipe dédiée pour un service impeccable et une expérience culinaire inoubliable.</p>
+                            <div class="mt-4 text-sm gold-text font-medium">Cliquez pour en savoir plus →</div>
+                        </div>
+                        <div class="flip-card-back service-card bg-gray-900 text-white p-8 rounded-lg shadow-md h-full flex flex-col justify-center">
+                            <h3 class="text-xl font-bold mb-4 gold-text">Mariages</h3>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2 text-sm">
+                                <li>Dégustation personnalisée</li>
+                                <li>Service de banquet complet</li>
+                                <li>Coordination avec votre wedding planner</li>
+                                <li>Options végétariennes et sans allergènes</li>
+                                <li>Gâteau de mariage sur mesure</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="flip-card fade-in delay-200">
+                    <div class="flip-card-inner h-full">
+                        <div class="flip-card-front service-card bg-white p-8 rounded-lg shadow-md h-full">
+                            <div class="text-4xl gold-text mb-6">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4">Événements d'Entreprise</h3>
+                            <p class="text-gray-600">Des solutions culinaires sophistiquées pour vos réunions, lancements de produits ou soirées de gala, adaptées à votre image de marque.</p>
+                            <div class="mt-4 text-sm gold-text font-medium">Cliquez pour en savoir plus →</div>
+                        </div>
+                        <div class="flip-card-back service-card bg-gray-900 text-white p-8 rounded-lg shadow-md h-full flex flex-col justify-center">
+                            <h3 class="text-xl font-bold mb-4 gold-text">Événements d'Entreprise</h3>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2 text-sm">
+                                <li>Buffets thématiques</li>
+                                <li>Stations de cuisine live</li>
+                                <li>Cocktails signature</li>
+                                <li>Service de petit-déjeuner/déjeuner</li>
+                                <li>Options diététiques spéciales</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="flip-card fade-in delay-300">
+                    <div class="flip-card-inner h-full">
+                        <div class="flip-card-front service-card bg-white p-8 rounded-lg shadow-md h-full">
+                            <div class="text-4xl gold-text mb-6">
+                                <i class="fas fa-champagne-glasses"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4">Réceptions Privées</h3>
+                            <p class="text-gray-600">Des dîners élégants et des cocktails raffinés pour vos soirées intimes, avec une attention particulière à chaque détail.</p>
+                            <div class="mt-4 text-sm gold-text font-medium">Cliquez pour en savoir plus →</div>
+                        </div>
+                        <div class="flip-card-back service-card bg-gray-900 text-white p-8 rounded-lg shadow-md h-full flex flex-col justify-center">
+                            <h3 class="text-xl font-bold mb-4 gold-text">Réceptions Privées</h3>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2 text-sm">
+                                <li>Menu dégustation sur mesure</li>
+                                <li>Service à table par notre personnel</li>
+                                <li>Accompagnement vin/boissons</li>
+                                <li>Décoration de table incluse</li>
+                                <li>Options pour petits espaces</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Highlights -->
+    <section id="menu" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-bold mb-4 gradient-text">Nos Créations</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Découvrez quelques-unes de nos spécialités primées</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Dish 1 -->
+                <div class="dish-card relative rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Filet de boeuf" class="w-full h-64 object-cover dish-image">
+                    <div class="dish-overlay absolute inset-0 flex items-end justify-center flex-col text-white p-6">
+                        <h3 class="text-xl font-bold mb-2">Filet de Boeuf Rossini</h3>
+                        <p class="text-sm text-center">Filet de boeuf wagyu, foie gras poêlé, truffe noire et sauce au vin rouge réduit</p>
+                        <div class="mt-4 flex justify-center w-full">
+                            <span class="bg-white text-gray-900 text-xs font-semibold px-3 py-1 rounded-full">Spécialité du Chef</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dish 2 -->
+                <div class="dish-card relative rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1971&q=80" alt="Saumon" class="w-full h-64 object-cover dish-image">
+                    <div class="dish-overlay absolute inset-0 flex items-end justify-center flex-col text-white p-6">
+                        <h3 class="text-xl font-bold mb-2">Saumon Mi-Cuit</h3>
+                        <p class="text-sm text-center">Saumon écossais, émulsion de citron yuzu, caviar osciètre et légumes de saison</p>
+                        <div class="mt-4 flex justify-center w-full">
+                            <span class="bg-white text-gray-900 text-xs font-semibold px-3 py-1 rounded-full">Best-seller</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dish 3 -->
+                <div class="dish-card relative rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Dessert" class="w-full h-64 object-cover dish-image">
+                    <div class="dish-overlay absolute inset-0 flex items-end justify-center flex-col text-white p-6">
+                        <h3 class="text-xl font-bold mb-2">Délice Chocolat-Passion</h3>
+                        <p class="text-sm text-center">Ganache chocolat noir, coulis de fruit de la passion, crumble noisette et sorbet mangue</p>
+                        <div class="mt-4 flex justify-center w-full">
+                            <span class="bg-white text-gray-900 text-xs font-semibold px-3 py-1 rounded-full">Nouveauté</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 fade-in delay-300">
+                <a href="#contact" class="inline-block btn-gold text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 pulse">
+                    Demander le Menu Complet <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parallax Section -->
+    <section class="py-32 bg-gray-900 text-white parallax" style="background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-shadow slide-in-left">Une Expérience Culinaire Inoubliable</h2>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-shadow slide-in-right delay-200">Laissez-nous transformer votre événement en un moment exceptionnel</p>
+            <div class="slide-in-right delay-400">
+                <a href="#contact" class="inline-block btn-outline-gold font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                    Réserver Maintenant
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-bold mb-4 gradient-text">Ce Que Disent Nos Clients</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Des expériences culinaires qui laissent une impression durable</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-white p-8 rounded-lg fade-in delay-100">
+                    <div class="flex items-center mb-6">
+                        <div class="relative">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sophie Laurent" class="w-12 h-12 rounded-full mr-4">
+                            <div class="absolute -bottom-1 -right-1 bg-white p-1 rounded-full">
+                                <div class="bg-green-500 w-4 h-4 rounded-full"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Sophie Laurent</h4>
+                            <p class="text-sm text-gray-500">Mariage - Juin 2023</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Le dîner de notre mariage était absolument parfait. Nos invités n'arrêtent pas de nous parler des plats exceptionnels. L'équipe d'Élégance Traiteur a su créer une expérience culinaire qui restera dans les mémoires."</p>
+                    <div class="mt-4 gold-text">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-100">
+                        <div class="flex justify-between text-xs text-gray-500">
+                            <span>Service</span>
+                            <span class="gold-text">★★★★★</span>
+                        </div>
+                        <div class="flex justify-between text-xs text-gray-500">
+                            <span>Qualité</span>
+                            <span class="gold-text">★★★★★</span>
+                        </div>
+                        <div class="flex justify-between text-xs text-gray-500">
+                            <span>Présentation</span>
+                            <span class="gold-text">★★★★★</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-white p-8 rounded-lg fade-in delay-200">
+                    <div class="flex items-center mb-6">
+                        <div class="relative">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Jean Dubois" class="w-12 h-12 rounded-full mr-4">
+                            <div class="absolute -bottom-1 -right-1 bg-white p-1 rounded-full">
+                                <div class="bg-green-500 w-4 h-4 rounded-full"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Jean Dubois</h4>
+                            <p class="text-sm text-gray-500">Événement d'entreprise - Avril 2023</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Pour notre gala annuel, nous voulions impressionner nos clients internationaux. Élégance Traiteur a dépassé toutes nos attentes avec une présentation artistique et des saveurs exquises. Le service était impeccable du début à la fin."</p>
+                    <div class="mt-4 gold-text">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-100">
+                        <div class="flex justify-between text-xs text-gray-500">
+                            <span>Service</span>
+                            <span class="gold-text">★★★★★</span>
+                        </div>
+                        <div class="flex justify-between text-xs text-gray-500">
+                            <span>Qualité</span>
+                            <span class="gold-text">★★★★★</span>
+                        </div>
+                        <div class="flex justify-between text-xs text-gray-500">
+                            <span>Présentation</span>
+                            <span class="gold-text">★★★★★</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-white p-8 rounded-lg fade-in delay-300">
+                    <div class="flex items-center mb-6">
+                        <div class="relative">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Camille Moreau" class="w-12 h-12 rounded-full mr-4">
+                            <div class="absolute -bottom-1 -right-1 bg-white p-1 rounded-full">
+                                <div class="bg-green-500 w-4 h-4 rounded-full"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Camille Moreau</h4>
+                            <p class="text-sm text-gray-500">Anniversaire - Février 2023</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Pour les 50 ans de ma mère, j'ai voulu organiser quelque chose de spécial. Élégance Traiteur a créé un menu personnalisé qui a ravi tous les convives. Leur attention aux détails et leur professionnalisme ont fait de cette soirée un succès."</p>
+                    <div class="mt-4 gold-text">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-100">
+                        <div class="flex justify-between text-xs text-gray-500">
+                            <span>Service</span>
+                            <span class="gold-text">★★★★★</span>
+                        </div>
+                        <div class="flex justify-between text-xs text-gray-500">
+                            <span>Qualité</span>
+                            <span class="gold-text">★★★★½</span>
+                        </div>
+                        <div class="flex justify-between text-xs text-gray-500">
+                            <span>Présentation</span>
+                            <span class="gold-text">★★★★★</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-12">
+                <div class="mb-12 lg:mb-0 slide-in-left">
+                    <h2 class="text-3xl font-bold mb-6 gradient-text">Contactez-nous</h2>
+                    <p class="text-lg mb-8">Prêt à transformer votre événement en une expérience culinaire exceptionnelle ? Remplissez le formulaire ou contactez-nous directement.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start hover-scale">
+                            <div class="flex-shrink-0 gold-text text-xl mr-4 mt-1">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Adresse</h4>
+                                <p class="text-gray-600">12 Avenue des Champs-Élysées, 75008 Paris</p>
+                                <a href="#" class="text-sm gold-hover font-medium mt-1 inline-block">Voir sur la carte →</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start hover-scale">
+                            <div class="flex-shrink-0 gold-text text-xl mr-4 mt-1">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Téléphone</h4>
+                                <p class="text-gray-600">+33 1 23 45 67 89</p>
+                                <a href="#" class="text-sm gold-hover font-medium mt-1 inline-block">Appeler maintenant →</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start hover-scale">
+                            <div class="flex-shrink-0 gold-text text-xl mr-4 mt-1">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Email</h4>
+                                <p class="text-gray-600">contact@elegance-traiteur.com</p>
+                                <a href="#" class="text-sm gold-hover font-medium mt-1 inline-block">Envoyer un email →</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start hover-scale">
+                            <div class="flex-shrink-0 gold-text text-xl mr-4 mt-1">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Heures d'ouverture</h4>
+                                <p class="text-gray-600">Lundi - Vendredi: 9h - 18h</p>
+                                <p class="text-gray-600">Samedi: 10h - 15h</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12">
+                        <h4 class="font-bold text-lg mb-4">Suivez-nous</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-gray-200 transition duration-300 hover-scale">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-gray-200 transition duration-300 hover-scale">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-gray-200 transition duration-300 hover-scale">
+                                <i class="fab fa-pinterest-p"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-gray-200 transition duration-300 hover-scale">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Action Button -->
+    <div class="fixed bottom-8 right-8 z-50">
+        <a href="#contact" class="w-16 h-16 bg-gradient-to-br from-gold-500 to-gold-600 text-white rounded-full shadow-lg flex items-center justify-center text-2xl hover-scale transform transition duration-300 hover:rotate-12">
+            <i class="fa-solid fa-envelope" style="color: #FFD43B;"></i>
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="mb-8 md:mb-0">
+                    <h3 class="text-xl font-bold mb-4 gold-text hover-scale inline-block">Élégance Traiteur</h3>
+                    <p class="text-gray-400 mt-2">Cuisine d'exception pour vos événements les plus prestigieux.</p>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 gold-text hover-scale inline-block">Liens Rapides</h4>
+                    <ul class="space-y-2 mt-4">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right text-xs mr-2 gold-text"></i> Accueil</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right text-xs mr-2 gold-text"></i> À Propos</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right text-xs mr-2 gold-text"></i> Services</a></li>
+                        <li><a href="#menu" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right text-xs mr-2 gold-text"></i> Menu</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right text-xs mr-2 gold-text"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 gold-text hover-scale inline-block">Services</h4>
+                    <ul class="space-y-2 mt-4">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right text-xs mr-2 gold-text"></i> Mariages</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right text-xs mr-2 gold-text"></i> Événements d'entreprise</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right text-xs mr-2 gold-text"></i> Réceptions privées</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right text-xs mr-2 gold-text"></i> Planification d'événements</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right text-xs mr-2 gold-text"></i> Services de bar</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <div class="">
+                        <h4 class="text-lg font-semibold mb-4 gold-text hover-scale inline-block">Suivez-nous</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-gray-200 transition duration-300 hover-scale">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-gray-200 transition duration-300 hover-scale">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-gray-200 transition duration-300 hover-scale">
+                                <i class="fab fa-pinterest-p"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-gray-200 transition duration-300 hover-scale">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Élégance Traiteur. Tous droits réservés. </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('open');
+            document.getElementById('mobile-menu').classList.toggle('max-h-0');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                document.getElementById('mobile-menu').classList.remove('open');
+                document.getElementById('mobile-menu').classList.add('max-h-0');
+            });
+        });
+        
+        // Add animations when elements come into view
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const slideLeftElements = document.querySelectorAll('.slide-in-left');
+        const slideRightElements = document.querySelectorAll('.slide-in-right');
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+        
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeIn');
+                    fadeObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        const slideLeftObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-slideInLeft');
+                    slideLeftObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        const slideRightObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-slideInRight');
+                    slideRightObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        fadeElements.forEach(element => {
+            fadeObserver.observe(element);
+        });
+        
+        slideLeftElements.forEach(element => {
+            slideLeftObserver.observe(element);
+        });
+        
+        slideRightElements.forEach(element => {
+            slideRightObserver.observe(element);
+        });
+        
+        // Form submission
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Show success message
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Envoi en cours...';
+                submitBtn.disabled = true;
+                
+                // Simulate form submission
+                setTimeout(() => {
+                    submitBtn.innerHTML = '<i class="fas fa-check mr-2"></i> Envoyé!';
+                    submitBtn.classList.remove('btn-gold');
+                    submitBtn.classList.add('bg-green-500');
+                    
+                    // Reset form
+                    setTimeout(() => {
+                        this.reset();
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        submitBtn.classList.add('btn-gold');
+                        submitBtn.classList.remove('bg-green-500');
+                    }, 2000);
+                }, 1500);
+            });
+        }
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg');
+                nav.classList.add('bg-white');
+                nav.classList.remove('bg-opacity-90');
+            } else {
+                nav.classList.remove('shadow-lg');
+                nav.classList.add('bg-opacity-90');
+            }
+        });
+        
+        // Initialize with nav state
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+</body>
+</html>
