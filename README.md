@@ -294,20 +294,6 @@ Les contributions sont bienvenues ! Voici comment participer :
 
 ---
 
-## 📄 License
-
-Ce projet est sous licence **MIT**. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
-
----
-
-## ✉️ Contact & Support
-
-- 📧 **Email** : [votre-email@example.com]
-- 🐛 **Signaler un bug** : [Issues](https://github.com/YOUR_USERNAME/allovirtuel/issues)
-- 💡 **Demander une fonctionnalité** : [Discussions](https://github.com/YOUR_USERNAME/allovirtuel/discussions)
-
----
-
 ## 📚 Ressources utiles
 
 - [PHP Documentation](https://www.php.net/docs.php)
