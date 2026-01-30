@@ -2,7 +2,6 @@
 
 > Application PHP pour la gestion de contenus multilingues et d'images avec panneau d'administration.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![PHP Version](https://img.shields.io/badge/PHP-7.4%2B-blue)](https://www.php.net/)
 [![Status](https://img.shields.io/badge/Status-Actif-green)](https://github.com)
 
